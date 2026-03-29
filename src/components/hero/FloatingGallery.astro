@@ -1,0 +1,131 @@
+---
+/* "Curated Works" horizontal scrolling gallery — static version */
+const works = [
+  { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop', alt: 'Digital dashboard design showing analytics and charts' },
+  { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop', alt: 'Sleek mobile app interface with minimalist design' },
+  { src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop', alt: 'Web design layout with clean typography and whitespace' },
+];
+---
+
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <h3 class="gallery-title font-headline">Curated Works</h3>
+      <div class="gallery-nav">
+        <button class="gallery-nav-btn" aria-label="Previous" id="gallery-prev">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="gallery-nav-btn" aria-label="Next" id="gallery-next">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-track no-scrollbar" id="gallery-track">
+    {works.map((work, i) => (
+      <div class={`gallery-item ${i === 1 ? 'gallery-item--center' : ''}`}>
+        <img src={work.src} alt={work.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery {
+    padding-bottom: var(--space-8);
+  }
+
+  .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-8);
+  }
+
+  .gallery-title {
+    font-size: var(--text-headline-sm);
+    font-weight: 700;
+    color: var(--color-on-surface);
+  }
+
+  .gallery-nav {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .gallery-nav-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-surface);
+    transition: background-color var(--duration-normal) var(--ease-default);
+  }
+
+  .gallery-nav-btn:hover {
+    background-color: var(--color-surface-container-highest);
+  }
+
+  .gallery-track {
+    display: flex;
+    gap: var(--space-8);
+    overflow-x: auto;
+    padding-bottom: var(--space-8);
+    padding-inline: var(--space-8);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-track {
+      padding-inline: max(var(--space-8), calc((100vw - var(--max-width)) / 2 + var(--space-8)));
+    }
+  }
+
+  .gallery-item {
+    flex: 0 0 auto;
+    width: min(450px, 80vw);
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background-color: var(--color-surface-container-high);
+    scroll-snap-align: center;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--ease-default);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-item--center {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+    z-index: 1;
+    position: relative;
+  }
+</style>
+
+<script>
+  const track = document.getElementById('gallery-track');
+  const prev = document.getElementById('gallery-prev');
+  const next = document.getElementById('gallery-next');
+  const scrollAmount = 480;
+
+  prev?.addEventListener('click', () => {
+    track?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  next?.addEventListener('click', () => {
+    track?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+</script>

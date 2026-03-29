@@ -1,60 +1,65 @@
 ---
-/* Contact section: split layout — info on left, form on right */
+/* Contact section — matches about_contact_me mockup layout */
 ---
 
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-grid">
-      <!-- Info Panel -->
+      <!-- Contact Info -->
       <div class="contact-info">
-        <h2 class="contact-info-title font-headline">Let's Start a Conversation</h2>
-        <p class="contact-info-desc font-body">
-          Whether you have a project that needs technical and creative direction, or
-          you want to chat about design philosophy, I'm listening.
+        <h2 class="contact-title font-headline">Let's Start a Conversation</h2>
+        <p class="contact-desc font-body">
+          Whether you have a project in mind or just want to chat about system
+          design and music theory, my inbox is always open.
         </p>
 
         <div class="contact-details">
           <div class="contact-detail">
-            <span class="material-symbols-outlined contact-detail-icon">mail</span>
-            <span>hello@digitalcurator.com</span>
+            <div class="contact-icon-circle">
+              <span class="material-symbols-outlined">alternate_email</span>
+            </div>
+            <div>
+              <p class="contact-detail-label font-label">Email Me</p>
+              <a href="mailto:hello@digitalcurator.com" class="contact-detail-value">hello@digitalcurator.com</a>
+            </div>
           </div>
-          <div class="contact-detail">
-            <span class="material-symbols-outlined contact-detail-icon">location_on</span>
-            <span>Portland, Oregon</span>
-          </div>
-        </div>
 
-        <div class="contact-social">
-          <a href="https://www.linkedin.com/in/alex-p-clark/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
-            LinkedIn <span class="material-symbols-outlined">arrow_outward</span>
-          </a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
-            GitHub <span class="material-symbols-outlined">arrow_outward</span>
-          </a>
+          <div class="contact-detail">
+            <div class="contact-icon-circle">
+              <span class="material-symbols-outlined">public</span>
+            </div>
+            <div>
+              <p class="contact-detail-label font-label">Socials</p>
+              <div class="contact-socials">
+                <a href="https://www.linkedin.com/in/alex-p-clark/" target="_blank" rel="noopener noreferrer" class="contact-social">LinkedIn</a>
+                <a href="https://github.com/apclark31" target="_blank" rel="noopener noreferrer" class="contact-social">GitHub</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Form Panel -->
-      <div class="contact-form-wrap">
+      <!-- Contact Form -->
+      <div class="contact-form-panel">
         <form class="contact-form" action="#" method="POST">
           <div class="form-field">
-            <label for="name" class="form-label font-label">Name</label>
-            <input type="text" id="name" name="name" required class="form-input" placeholder="Your name" />
+            <label for="name" class="form-label font-label">Full Name</label>
+            <input type="text" id="name" name="name" required class="form-input" placeholder="John Doe" />
           </div>
 
           <div class="form-field">
-            <label for="email" class="form-label font-label">Email</label>
-            <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com" />
+            <label for="email" class="form-label font-label">Email Address</label>
+            <input type="email" id="email" name="email" required class="form-input" placeholder="john@example.com" />
           </div>
 
           <div class="form-field">
-            <label for="message" class="form-label font-label">Message</label>
-            <textarea id="message" name="message" rows="5" required class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
+            <label for="message" class="form-label font-label">Your Message</label>
+            <textarea id="message" name="message" rows="4" required class="form-input form-textarea" placeholder="How can we help each other?"></textarea>
           </div>
 
           <button type="submit" class="form-submit signature-gradient">
             Send Message
-            <span class="material-symbols-outlined">arrow_forward</span>
+            <span class="material-symbols-outlined">send</span>
           </button>
         </form>
       </div>
@@ -70,12 +75,12 @@
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    border-radius: var(--radius-4xl);
+    border-radius: var(--radius-xl);
     overflow: hidden;
+    background-color: var(--color-surface-container-low);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .contact-grid {
       grid-template-columns: 1fr 1fr;
     }
@@ -85,109 +90,139 @@
   .contact-info {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
-    padding: var(--space-10);
-    border-radius: var(--radius-3xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
+    padding: var(--space-12);
   }
 
-  .contact-info-title {
-    font-size: var(--text-headline-md);
+  @media (min-width: 1024px) {
+    .contact-info {
+      padding: var(--space-20);
+    }
+  }
+
+  .contact-title {
+    font-size: clamp(2rem, 4vw, var(--text-display-md));
     font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    margin-bottom: var(--space-8);
   }
 
-  .contact-info-desc {
-    font-size: var(--text-body-md);
-    opacity: 0.85;
+  .contact-desc {
+    font-size: var(--text-title-md);
+    color: rgba(192, 255, 243, 0.7);
     line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-12);
+    max-width: 28rem;
   }
 
   .contact-details {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    margin-top: auto;
+    gap: var(--space-8);
   }
 
   .contact-detail {
     display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: var(--text-body-sm);
-  }
-
-  .contact-detail-icon {
-    font-size: 1.25rem;
-    opacity: 0.7;
-  }
-
-  .contact-social {
-    display: flex;
+    align-items: flex-start;
     gap: var(--space-6);
   }
 
-  .contact-social-link {
-    display: inline-flex;
+  .contact-icon-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(106, 242, 222, 0.2);
+    display: flex;
     align-items: center;
-    gap: var(--space-1);
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon-circle .material-symbols-outlined {
+    color: var(--color-primary-container);
+    font-size: 1.25rem;
+  }
+
+  .contact-detail-label {
     font-size: var(--text-body-sm);
-    font-weight: 600;
-    opacity: 0.8;
-    transition: opacity var(--duration-normal) var(--ease-default);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-primary-container);
+    margin-bottom: var(--space-1);
   }
 
-  .contact-social-link:hover {
-    opacity: 1;
+  .contact-detail-value {
+    font-size: var(--text-title-md);
+    font-weight: 700;
+    color: var(--color-on-primary);
+    transition: color var(--duration-normal) var(--ease-default);
   }
 
-  .contact-social-link .material-symbols-outlined {
-    font-size: 0.875rem;
+  .contact-detail-value:hover {
+    color: var(--color-primary-container);
+  }
+
+  .contact-socials {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: var(--space-2);
+  }
+
+  .contact-social {
+    font-weight: 700;
+    color: var(--color-on-primary);
+    transition: color var(--duration-normal) var(--ease-default);
+  }
+
+  .contact-social:hover {
+    color: var(--color-primary-container);
   }
 
   /* Form panel */
-  .contact-form-wrap {
+  .contact-form-panel {
     background-color: var(--color-surface-container-lowest);
-    padding: var(--space-10);
-    border-radius: var(--radius-3xl);
+    padding: var(--space-12);
+  }
+
+  @media (min-width: 1024px) {
+    .contact-form-panel {
+      padding: var(--space-20);
+    }
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-8);
   }
 
   .form-field {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-4);
   }
 
   .form-label {
-    font-size: var(--text-label-md);
+    font-size: var(--text-body-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: var(--tracking-wider);
-    color: var(--color-on-surface-variant);
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-outline);
   }
 
   .form-input {
     font-family: var(--font-body);
     font-size: var(--text-body-md);
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-4);
     border: none;
     border-radius: var(--radius-lg);
     background-color: var(--color-surface-container-low);
     color: var(--color-on-surface);
-    transition: background-color var(--duration-normal) var(--ease-default),
-                box-shadow var(--duration-normal) var(--ease-default);
+    transition: box-shadow var(--duration-normal) var(--ease-default);
     outline: none;
   }
 
   .form-input:focus {
-    background-color: var(--color-surface-container-highest);
-    box-shadow: 0 0 0 2px rgba(0, 103, 93, 0.2);
+    box-shadow: 0 0 0 2px var(--color-primary);
   }
 
   .form-input::placeholder {
@@ -196,32 +231,28 @@
 
   .form-textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
   }
 
   .form-submit {
-    display: inline-flex;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-4) var(--space-8);
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
     border: none;
     border-radius: var(--radius-full);
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: var(--text-body-md);
-    color: var(--color-on-primary-container);
+    font-size: var(--text-body-lg);
+    color: var(--color-on-primary);
     cursor: pointer;
-    transition: opacity var(--duration-normal) var(--ease-default),
-                transform var(--duration-fast) var(--ease-default);
+    transition: opacity var(--duration-normal) var(--ease-default);
   }
 
   .form-submit:hover {
     opacity: 0.9;
-  }
-
-  .form-submit:active {
-    transform: scale(0.97);
   }
 
   .form-submit .material-symbols-outlined {
