@@ -1,0 +1,9 @@
+{
+  "title": "CRO Toolkit",
+  "description": "A browser-based suite for conversion specialists. Real-time DOM manipulation testing with visual performance auditing.",
+  "type": "secondary",
+  "badge": "Specialized Tool",
+  "hashtags": ["#Performance", "#A/BTesting"],
+  "link": "#",
+  "order": 1
+}

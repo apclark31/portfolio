@@ -1,5 +1,24 @@
 ---
-/* Projects section — matches projects_hobbies_showcase mockup */
+interface Project {
+  title: string;
+  description: string;
+  type: 'main' | 'secondary' | 'hobby';
+  tags?: string[];
+  image?: string;
+  link?: string;
+  badge?: string;
+  hashtags?: string[];
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+const mainProject = projects.find(p => p.type === 'main');
+const secondaryProject = projects.find(p => p.type === 'secondary');
+const hobbyProject = projects.find(p => p.type === 'hobby');
 ---
 
 <section class="projects" id="projects">
@@ -17,78 +36,77 @@
 
     <!-- Projects Bento Grid (12 col) -->
     <div class="projects-bento">
-      <!-- Main: Measurable (8 cols) -->
-      <div class="project-card project-main">
-        <div class="project-image-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
-            alt="Analytics dashboard interface"
-            loading="lazy"
-          />
-          <div class="project-image-tags">
-            <span class="project-image-tag">React</span>
-            <span class="project-image-tag">CRO</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title font-headline">Measurable</h3>
-          <p class="project-desc font-body">
-            A high-performance analytics dashboard designed to reduce cognitive load
-            while maximizing data-driven decision speed. Engineered with advanced
-            caching and sub-100ms interaction latency.
-          </p>
-          <a href="#" class="project-link">
-            View Project
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Secondary: CRO Toolkit (4 cols) -->
-      <div class="project-card project-secondary">
-        <div class="project-body project-body-grow">
-          <span class="project-badge">Specialized Tool</span>
-          <h3 class="project-title font-headline">CRO Toolkit</h3>
-          <p class="project-desc font-body">
-            A browser-based suite for conversion specialists. Real-time DOM
-            manipulation testing with visual performance auditing.
-          </p>
-          <div class="project-hashtags">
-            <span>#Performance</span>
-            <span>#A/BTesting</span>
-          </div>
-        </div>
-        <div class="project-secondary-cta">
-          <button class="project-cta-btn signature-gradient">
-            Check it Out
-            <span class="material-symbols-outlined">open_in_new</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Hobby: Fret Atlas (5 cols, horizontal layout) -->
-      <div class="project-card project-hobby">
-        <div class="project-hobby-inner">
-          <div class="project-hobby-image">
+      {mainProject && (
+        <div class="project-card project-main">
+          <div class="project-image-wrap">
             <img
-              src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=400&fit=crop"
-              alt="Guitar fretboard close-up"
+              src={mainProject.image}
+              alt={`${mainProject.title} interface`}
               loading="lazy"
             />
+            {mainProject.tags && mainProject.tags.length > 0 && (
+              <div class="project-image-tags">
+                {mainProject.tags.map((tag) => (
+                  <span class="project-image-tag">{tag}</span>
+                ))}
+              </div>
+            )}
           </div>
-          <div class="project-hobby-content">
-            <h3 class="project-title font-headline">Fret Atlas</h3>
-            <p class="project-desc font-body">
-              An interactive visualization engine for guitar theory. Bridging complex
-              musical scales with intuitive UI patterns.
-            </p>
-            <a href="#" class="project-link">
-              Explore Hobby
-              <span class="material-symbols-outlined">north_east</span>
+          <div class="project-body">
+            <h3 class="project-title font-headline">{mainProject.title}</h3>
+            <p class="project-desc font-body">{mainProject.description}</p>
+            <a href={mainProject.link || '#'} class="project-link">
+              View Project
+              <span class="material-symbols-outlined">arrow_forward</span>
             </a>
           </div>
         </div>
-      </div>
+      )}
+
+      {secondaryProject && (
+        <div class="project-card project-secondary">
+          <div class="project-body project-body-grow">
+            {secondaryProject.badge && <span class="project-badge">{secondaryProject.badge}</span>}
+            <h3 class="project-title font-headline">{secondaryProject.title}</h3>
+            <p class="project-desc font-body">{secondaryProject.description}</p>
+            {secondaryProject.hashtags && secondaryProject.hashtags.length > 0 && (
+              <div class="project-hashtags">
+                {secondaryProject.hashtags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+          <div class="project-secondary-cta">
+            <a href={secondaryProject.link || '#'} class="project-cta-btn signature-gradient">
+              Check it Out
+              <span class="material-symbols-outlined">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      )}
+
+      {hobbyProject && (
+        <div class="project-card project-hobby">
+          <div class="project-hobby-inner">
+            <div class="project-hobby-image">
+              <img
+                src={hobbyProject.image}
+                alt={`${hobbyProject.title} preview`}
+                loading="lazy"
+              />
+            </div>
+            <div class="project-hobby-content">
+              <h3 class="project-title font-headline">{hobbyProject.title}</h3>
+              <p class="project-desc font-body">{hobbyProject.description}</p>
+              <a href={hobbyProject.link || '#'} class="project-link">
+                Explore Hobby
+                <span class="material-symbols-outlined">north_east</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       <!-- CTA (7 cols) -->
       <div class="project-card project-cta">
@@ -98,7 +116,7 @@
         <h2 class="project-cta-title font-headline">
           Have a project that needs a digital curator?
         </h2>
-        <a href="#contact" class="project-cta-button">Get in Touch</a>
+        <a href="/contact" class="project-cta-button">Get in Touch</a>
       </div>
     </div>
   </div>

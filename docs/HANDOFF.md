@@ -1,6 +1,6 @@
 # Handoff & Progress Tracker
 
-## Current State: Phase 2 Complete
+## Current State: Phase 3 Complete
 Last updated: 2026-03-29
 
 ---
@@ -33,13 +33,16 @@ Last updated: 2026-03-29
 
 ## Next Up
 
-### Phase 3: Content Collections
-- [ ] Define Zod schemas in `src/content/config.ts` for timeline, case studies, projects, hobbies
-- [ ] Create MDX files for each timeline entry with frontmatter (company, role, dateRange, startDate, isCurrent, side, tags, image, caseStudySlug)
-- [ ] Create placeholder case study MDX files (SOREL A/B testing, Fender optimization)
-- [ ] Create project and hobby content files
-- [ ] Refactor TimelinePlaceholder, ProjectsSection, InterestGrid to read from content collections
-- [ ] **Blocker:** Alex needs to verify exact job titles, date ranges, and descriptions — current data is from partial LinkedIn scrape
+### Phase 3: Content Collections + Multi-Page Architecture (Done)
+- [x] Defined Zod schemas in `src/content.config.ts` for timeline, projects, hobbies collections (Astro 6 Content Layer API with glob loader)
+- [x] Created JSON data files for all timeline entries (5), projects (3), and hobbies (4) in `src/content/`
+- [x] Refactored TimelinePlaceholder, ProjectsSection, InterestGrid to accept data via props
+- [x] Created dedicated `/experience` page (full timeline) and `/projects` page (full showcase)
+- [x] Updated homepage to query collections: 2-entry timeline preview + "View Full Timeline" link, full projects bento, hobbies, about, contact
+- [x] Switched navigation from hash-based to route-based links (`/experience`, `/projects`, `/#about`, `/contact`)
+- [x] Updated all internal hash links across components
+- [ ] **Pending:** Alex needs to verify exact job titles, date ranges, and descriptions — current data is from partial LinkedIn scrape
+- [ ] **Pending:** Case study content collection (MDX) deferred to Phase 5
 
 ### Phase 4: GSAP Timeline
 - [ ] Install GSAP + ScrollTrigger
@@ -100,8 +103,12 @@ Last updated: 2026-03-29
 ---
 
 ## Architecture Notes
-- The site is a single `index.astro` page with all sections. No routing complexity.
+- Multi-page site: homepage (`/`), experience (`/experience`), projects (`/projects`). About and Contact live on the homepage.
+- Content collections (Astro 6 Content Layer API) manage timeline, projects, and hobbies data as JSON files with Zod schemas.
+- Components accept data via props — pages query collections and pass data down.
+- Homepage shows a 2-entry timeline preview with link to full `/experience` page.
 - React islands (`client:visible` / `client:load`) are used only for: Timeline (GSAP), CaseStudyOverlay (interactive), FloatingGallery (scroll behavior), ContactForm (validation).
 - Everything else is static Astro components — zero JS shipped for those sections.
 - Design tokens in `src/styles/tokens.css` are the single source of truth. All components reference them via CSS custom properties.
+- Navigation uses route-based links with `activePath` prop for current-page highlighting.
 - The timeline currently uses `TimelinePlaceholder.astro` (static). It will be replaced by `Timeline.tsx` (React + GSAP) in Phase 4. The layout and styles should carry over.

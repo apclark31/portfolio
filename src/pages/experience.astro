@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/navigation/Navigation.astro';
+import TimelineHeader from '../components/timeline/TimelineHeader.astro';
+import TimelinePlaceholder from '../components/timeline/TimelinePlaceholder.astro';
+import Footer from '../components/shared/Footer.astro';
+
+const allEntries = await getCollection('timeline');
+const entries = allEntries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => e.data);
+---
+
+<Layout title="Experience — Alex Clark" description="A chronological exhibition of digital craftsmanship across Fender, SOREL, Dr. Martens, and beyond.">
+  <Navigation activePath="/experience" />
+
+  <section class="experience-page">
+    <TimelineHeader />
+    <div class="container">
+      <TimelinePlaceholder entries={entries} />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .experience-page {
+    padding-top: calc(var(--nav-height) + var(--space-12));
+    padding-bottom: var(--space-24);
+  }
+</style>

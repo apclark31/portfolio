@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/navigation/Navigation.astro';
+import ProjectsSection from '../components/projects/ProjectsSection.astro';
+import Footer from '../components/shared/Footer.astro';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => e.data);
+---
+
+<Layout title="Projects — Alex Clark" description="A curated collection of interfaces, experimental tools, and passion projects.">
+  <Navigation activePath="/projects" />
+
+  <div class="projects-page">
+    <ProjectsSection projects={projects} />
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .projects-page {
+    padding-top: calc(var(--nav-height) + var(--space-12));
+  }
+</style>

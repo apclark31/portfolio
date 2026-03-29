@@ -1,60 +1,23 @@
 ---
 import TagPill from '../shared/TagPill.astro';
 
-/* Static timeline placeholder — will be replaced by GSAP React island in Phase 4 */
-const entries = [
-  {
-    dateRange: '2024 — Present',
-    role: 'Senior eCommerce Manager',
-    company: 'Fender Musical Instruments',
-    description: 'Returned to lead eCommerce growth strategy and site optimization for one of the world\'s most iconic music brands.',
-    tags: ['eCommerce', 'CRO', 'Strategy'],
-    side: 'right' as const,
-    isCurrent: true,
-    image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=450&fit=crop',
-  },
-  {
-    dateRange: '2024',
-    role: 'Manager, Site Optimization',
-    company: 'SOREL',
-    description: 'Led site optimization and A/B testing initiatives, driving measurable conversion improvements across the DTC experience.',
-    tags: ['A/B Testing', 'CRO', 'Analytics'],
-    side: 'left' as const,
-    isCurrent: false,
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=450&fit=crop',
-    caseStudy: true,
-  },
-  {
-    dateRange: '2021 — 2024',
-    role: 'eCommerce & Optimization Manager, Growth',
-    company: 'Fender Musical Instruments',
-    description: 'Managed eCommerce optimization, growth strategies, and conversion rate initiatives across the global digital storefront.',
-    tags: ['Growth', 'eCommerce', 'Optimization'],
-    side: 'right' as const,
-    isCurrent: false,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=450&fit=crop',
-  },
-  {
-    dateRange: '2016 — 2021',
-    role: 'Sr. Manager, eCommerce Operations (Americas)',
-    company: 'Dr. Martens — Airwair International',
-    description: 'Progressive career from Retail IT Analyst to Senior Manager. Built and scaled the Americas eCommerce operation across multiple roles and promotions.',
-    tags: ['eCommerce Ops', 'Team Leadership', 'DTC'],
-    side: 'left' as const,
-    isCurrent: false,
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=450&fit=crop',
-  },
-  {
-    dateRange: '2013 — 2016',
-    role: 'IT Specialist',
-    company: 'Made In Oregon',
-    description: 'Administered network and hardware infrastructure for multiple retail locations, corporate office, and web department.',
-    tags: ['IT Infrastructure', 'Retail Tech'],
-    side: 'right' as const,
-    isCurrent: false,
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop',
-  },
-];
+interface TimelineEntry {
+  dateRange: string;
+  role: string;
+  company: string;
+  description: string;
+  tags: string[];
+  side: 'left' | 'right';
+  isCurrent: boolean;
+  image: string;
+  caseStudy?: boolean;
+}
+
+interface Props {
+  entries: TimelineEntry[];
+}
+
+const { entries } = Astro.props;
 ---
 
 <div class="timeline-entries">

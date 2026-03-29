@@ -1,18 +1,33 @@
 ---
-/* Glassmorphic fixed navigation bar */
+interface Props {
+  activePath?: string;
+}
+
+const { activePath = '/' } = Astro.props;
+
+const navLinks = [
+  { href: '/experience', label: 'Experience' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/#about', label: 'About' },
+];
 ---
 
 <nav class="nav glass" id="main-nav">
   <div class="nav-inner container">
-    <a href="#" class="nav-logo font-headline">The Curator</a>
+    <a href="/" class="nav-logo font-headline">The Curator</a>
 
     <div class="nav-links">
-      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-      <a href="#about" class="nav-link" data-section="about">About</a>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`nav-link ${activePath === link.href ? 'active' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
     </div>
 
-    <a href="#contact" class="nav-cta">Contact</a>
+    <a href="/contact" class={`nav-cta ${activePath === '/contact' ? 'nav-cta--active' : ''}`}>Contact</a>
 
     <!-- Mobile menu button -->
     <button class="nav-mobile-toggle" aria-label="Toggle menu" id="mobile-menu-btn">
@@ -22,10 +37,10 @@
 
   <!-- Mobile menu -->
   <div class="nav-mobile-menu" id="mobile-menu">
-    <a href="#experience" class="nav-mobile-link">Experience</a>
-    <a href="#projects" class="nav-mobile-link">Projects</a>
-    <a href="#about" class="nav-mobile-link">About</a>
-    <a href="#contact" class="nav-mobile-link nav-cta" style="text-align: center;">Contact</a>
+    {navLinks.map((link) => (
+      <a href={link.href} class="nav-mobile-link">{link.label}</a>
+    ))}
+    <a href="/contact" class="nav-mobile-link nav-cta" style="text-align: center;">Contact</a>
   </div>
 </nav>
 
@@ -165,24 +180,4 @@
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => menu?.classList.remove('open'));
   });
-
-  // Active section tracking via IntersectionObserver
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link[data-section]');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('data-section') === id);
-          });
-        }
-      });
-    },
-    { rootMargin: '-20% 0px -60% 0px' }
-  );
-
-  sections.forEach((section) => observer.observe(section));
 </script>

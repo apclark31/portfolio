@@ -12,7 +12,9 @@ Alex Clark's personal portfolio site. It's an editorial, gallery-like experience
 - **Cloudflare Pages** via GitHub (`apclark31/portfolio`)
 
 ## Architecture
-Single scrolling page (`src/pages/index.astro`) with hash-based nav. Sections flow as a curated exhibition. React islands are used only where JS interactivity is required (GSAP timeline, case study overlay, contact form).
+Multi-page site with route-based navigation. The homepage (`src/pages/index.astro`) shows Hero, BentoIntro, FloatingGallery, a 2-entry timeline preview, CoreCompetencies, Projects, InterestGrid, About, and Contact. Dedicated pages exist for `/experience` (full timeline) and `/projects` (full showcase). About and Contact remain on the homepage. React islands are used only where JS interactivity is required (GSAP timeline, case study overlay, contact form).
+
+Content is managed through Astro content collections (`src/content.config.ts`) with Zod schemas for timeline, projects, and hobbies. Data lives in JSON files under `src/content/`.
 
 ## Design System Rules (from DESIGN.md)
 These are non-negotiable:
@@ -36,15 +38,16 @@ All 60+ tokens live in `src/styles/tokens.css` as CSS custom properties. Key one
 - Surface hierarchy: `lowest` (#fff) → `low` → `container` → `high` → `highest`
 
 ## Content Strategy
-- Timeline entries, case studies, projects, and hobbies will be Astro content collections (MDX with Zod schemas) once Phase 3 is implemented
-- Currently hardcoded with real company names but placeholder descriptions
+- Timeline, projects, and hobbies use Astro content collections with Zod schemas (JSON data files in `src/content/`)
+- Case studies will be added as a content collection (MDX) in a later phase
+- Data uses real company names but placeholder descriptions
 - Alex's LinkedIn data is partial (scraped without auth) — exact dates and titles need manual verification
 - SOREL and Fender will have the richest case study content (A/B testing examples)
 - Dr. Martens and Made In Oregon will have lighter timeline entries
 - Images are all Unsplash placeholders until real assets are provided
 
 ## Key UX Decisions
-- **Single page:** All sections scroll as one exhibition, not separate routes
+- **Multi-page:** Homepage is a curated exhibition with previews; Experience and Projects have dedicated pages for interactive depth
 - **Case study overlay:** Slide-in panel (right on desktop, bottom sheet on mobile) — does NOT navigate away from the timeline
 - **Timeline interactivity:** GSAP ScrollTrigger with parallax, progressive reveal, alternating left/right layout
 - **Mobile-first:** All layouts responsive, simplified animations on mobile
