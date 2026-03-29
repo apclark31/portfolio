@@ -1,82 +1,104 @@
 ---
-import GradientButton from '../shared/GradientButton.astro';
-import TagPill from '../shared/TagPill.astro';
+/* Projects section — matches projects_hobbies_showcase mockup */
 ---
 
 <section class="projects" id="projects">
   <div class="container">
-    <div class="projects-header">
+    <!-- Header -->
+    <header class="projects-header">
       <span class="section-label">Selected Works</span>
-      <h2 class="projects-title font-headline">Digital Craft &amp; Functional Beauty</h2>
+      <h1 class="projects-title font-headline">Digital Craft &amp;<br />Functional Beauty</h1>
       <p class="projects-desc font-body">
         A curated collection of interfaces, experimental tools, and hobbies that
         explore the intersection of high-performance engineering and
         conversion-driven design.
       </p>
-    </div>
+    </header>
 
+    <!-- Projects Bento Grid (12 col) -->
     <div class="projects-bento">
-      <!-- Main Project -->
+      <!-- Main: Measurable (8 cols) -->
       <div class="project-card project-main">
-        <div class="project-card-image">
+        <div class="project-image-wrap">
           <img
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
             alt="Analytics dashboard interface"
             loading="lazy"
           />
+          <div class="project-image-tags">
+            <span class="project-image-tag">React</span>
+            <span class="project-image-tag">CRO</span>
+          </div>
         </div>
-        <div class="project-card-tags">
-          <TagPill>React</TagPill>
-          <TagPill>CRO</TagPill>
+        <div class="project-body">
+          <h3 class="project-title font-headline">Measurable</h3>
+          <p class="project-desc font-body">
+            A high-performance analytics dashboard designed to reduce cognitive load
+            while maximizing data-driven decision speed. Engineered with advanced
+            caching and sub-100ms interaction latency.
+          </p>
+          <a href="#" class="project-link">
+            View Project
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
         </div>
-        <h3 class="project-card-title font-headline">Measurable</h3>
-        <p class="project-card-desc font-body">
-          A high-performance analytics dashboard designed to reduce cognitive load
-          while maximizing data-driven decision speed. Engineered with advanced
-          caching and sub-100ms interaction latency.
-        </p>
-        <a href="#" class="project-card-link">View Project <span class="material-symbols-outlined">arrow_forward</span></a>
       </div>
 
-      <!-- Secondary Project -->
+      <!-- Secondary: CRO Toolkit (4 cols) -->
       <div class="project-card project-secondary">
-        <span class="section-label">Specialized Tool</span>
-        <h3 class="project-card-title font-headline">CRO Toolkit</h3>
-        <p class="project-card-desc font-body">
-          A browser-based suite for conversion specialists. Real-time DOM
-          manipulation testing with visual performance auditing.
-        </p>
-        <div class="project-card-tags">
-          <TagPill>Performance</TagPill>
-          <TagPill>A/B Testing</TagPill>
+        <div class="project-body project-body-grow">
+          <span class="project-badge">Specialized Tool</span>
+          <h3 class="project-title font-headline">CRO Toolkit</h3>
+          <p class="project-desc font-body">
+            A browser-based suite for conversion specialists. Real-time DOM
+            manipulation testing with visual performance auditing.
+          </p>
+          <div class="project-hashtags">
+            <span>#Performance</span>
+            <span>#A/BTesting</span>
+          </div>
         </div>
-        <GradientButton href="#">Check It Out</GradientButton>
+        <div class="project-secondary-cta">
+          <button class="project-cta-btn signature-gradient">
+            Check it Out
+            <span class="material-symbols-outlined">open_in_new</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Hobby Project -->
+      <!-- Hobby: Fret Atlas (5 cols, horizontal layout) -->
       <div class="project-card project-hobby">
-        <div class="project-card-image project-hobby-image">
-          <img
-            src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=300&fit=crop"
-            alt="Guitar fretboard close-up"
-            loading="lazy"
-          />
+        <div class="project-hobby-inner">
+          <div class="project-hobby-image">
+            <img
+              src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=400&fit=crop"
+              alt="Guitar fretboard close-up"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-hobby-content">
+            <h3 class="project-title font-headline">Fret Atlas</h3>
+            <p class="project-desc font-body">
+              An interactive visualization engine for guitar theory. Bridging complex
+              musical scales with intuitive UI patterns.
+            </p>
+            <a href="#" class="project-link">
+              Explore Hobby
+              <span class="material-symbols-outlined">north_east</span>
+            </a>
+          </div>
         </div>
-        <h3 class="project-card-title font-headline">Fret Atlas</h3>
-        <p class="project-card-desc font-body">
-          An interactive visualization engine for guitar theory. Bridging complex
-          musical scales with intuitive UI patterns.
-        </p>
-        <a href="#" class="project-card-link">Explore Hobby <span class="material-symbols-outlined">arrow_forward</span></a>
       </div>
 
-      <!-- CTA Card -->
-      <div class="project-card project-cta signature-gradient">
-        <span class="section-label" style="color: rgba(255,255,255,0.7);">Open for Collaboration</span>
-        <h3 class="project-cta-title font-headline">
+      <!-- CTA (7 cols) -->
+      <div class="project-card project-cta">
+        <div class="project-cta-glow project-cta-glow-tl"></div>
+        <div class="project-cta-glow project-cta-glow-br"></div>
+        <span class="project-cta-label font-label">Open for Collaboration</span>
+        <h2 class="project-cta-title font-headline">
           Have a project that needs a digital curator?
-        </h3>
-        <a href="#contact" class="project-cta-btn">Get in Touch</a>
+        </h2>
+        <a href="#contact" class="project-cta-button">Get in Touch</a>
       </div>
     </div>
   </div>
@@ -91,137 +113,343 @@ import TagPill from '../shared/TagPill.astro';
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    margin-bottom: var(--space-16);
-    max-width: 40rem;
+    margin-bottom: var(--space-20);
+    max-width: 48rem;
   }
 
   .projects-title {
-    font-size: clamp(2rem, 5vw, var(--text-display-md));
+    font-size: clamp(2.5rem, 6vw, var(--text-display-lg));
     font-weight: 800;
     letter-spacing: var(--tracking-tighter);
     color: var(--color-on-surface);
+    line-height: var(--leading-tight);
   }
 
   .projects-desc {
-    font-size: var(--text-body-lg);
+    font-size: var(--text-title-md);
     color: var(--color-on-surface-variant);
     line-height: var(--leading-relaxed);
+    max-width: 40rem;
   }
 
+  /* Bento grid */
   .projects-bento {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-8);
   }
 
   @media (min-width: 768px) {
     .projects-bento {
       grid-template-columns: repeat(12, 1fr);
     }
-
-    .project-main { grid-column: span 8; }
-    .project-secondary { grid-column: span 4; }
-    .project-hobby { grid-column: span 5; }
-    .project-cta { grid-column: span 7; }
   }
 
   .project-card {
     border-radius: var(--radius-3xl);
-    padding: var(--space-8);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
+    overflow: hidden;
   }
 
+  /* Main project (8 cols) */
   .project-main {
-    background-color: var(--color-surface-container-lowest);
-  }
-
-  .project-secondary {
     background-color: var(--color-surface-container-low);
   }
 
-  .project-hobby {
-    background-color: var(--color-surface-container-lowest);
+  @media (min-width: 768px) {
+    .project-main { grid-column: span 8; }
   }
 
-  .project-cta {
-    color: var(--color-on-primary);
-    justify-content: center;
-    align-items: flex-start;
-    gap: var(--space-6);
-  }
-
-  .project-card-image {
-    border-radius: var(--radius-2xl);
+  .project-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    background-color: var(--color-surface-container);
   }
 
-  .project-card-image img {
+  .project-image-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--duration-slow) var(--ease-default);
+    transition: transform var(--duration-slower) var(--ease-default);
   }
 
-  .project-card:hover .project-card-image img {
-    transform: scale(1.03);
+  .project-main:hover .project-image-wrap img {
+    transform: scale(1.05);
   }
 
-  .project-card-tags {
+  .project-image-tags {
+    position: absolute;
+    top: var(--space-6);
+    left: var(--space-6);
     display: flex;
-    flex-wrap: wrap;
     gap: var(--space-2);
   }
 
-  .project-card-title {
-    font-size: var(--text-headline-sm);
+  .project-image-tag {
+    padding: var(--space-1) var(--space-3);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-full);
+    font-size: var(--text-label-md);
     font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  .project-body {
+    padding: var(--space-10);
+  }
+
+  .project-title {
+    font-size: var(--text-headline-md);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
     color: var(--color-on-surface);
   }
 
-  .project-card-desc {
+  .project-desc {
     font-size: var(--text-body-md);
     color: var(--color-on-surface-variant);
     line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+    max-width: 36rem;
   }
 
-  .project-card-link {
+  .project-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-1);
+    gap: var(--space-2);
     color: var(--color-primary);
     font-weight: 700;
-    font-size: var(--text-body-sm);
-    transition: gap var(--duration-normal) var(--ease-default);
+    font-size: var(--text-body-md);
   }
 
-  .project-card-link:hover {
-    gap: var(--space-2);
-  }
-
-  .project-card-link .material-symbols-outlined {
+  .project-link .material-symbols-outlined {
     font-size: 1rem;
+    transition: transform var(--duration-normal) var(--ease-default);
   }
 
-  .project-cta-title {
-    font-size: var(--text-headline-md);
-    font-weight: 800;
-    color: var(--color-on-primary);
+  .project-link:hover .material-symbols-outlined {
+    transform: translateX(4px);
+  }
+
+  /* Secondary project (4 cols) */
+  .project-secondary {
+    background-color: var(--color-surface-container-highest);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    .project-secondary { grid-column: span 4; }
+  }
+
+  .project-body-grow {
+    flex: 1;
+  }
+
+  .project-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background-color: rgba(0, 103, 93, 0.1);
+    border-radius: var(--radius-full);
+    font-size: var(--text-label-md);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: var(--space-6);
+  }
+
+  .project-secondary .project-title {
+    font-size: var(--text-headline-sm);
+  }
+
+  .project-hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    font-size: var(--text-label-md);
+    font-weight: 500;
+    color: var(--color-on-surface-variant);
+  }
+
+  .project-secondary-cta {
+    padding: 0 var(--space-10) var(--space-10);
   }
 
   .project-cta-btn {
-    display: inline-block;
-    padding: var(--space-3) var(--space-8);
-    background-color: var(--color-surface-container-lowest);
-    color: var(--color-primary);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: none;
     border-radius: var(--radius-full);
+    font-family: var(--font-body);
     font-weight: 700;
+    color: var(--color-on-primary);
+    cursor: pointer;
     transition: opacity var(--duration-normal) var(--ease-default);
   }
 
   .project-cta-btn:hover {
     opacity: 0.9;
+  }
+
+  .project-cta-btn .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  /* Hobby project (5 cols, horizontal) */
+  .project-hobby {
+    background-color: var(--color-surface-container);
+  }
+
+  @media (min-width: 768px) {
+    .project-hobby { grid-column: span 5; }
+  }
+
+  .project-hobby-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .project-hobby-inner {
+      flex-direction: row;
+    }
+  }
+
+  .project-hobby-image {
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .project-hobby-image {
+      width: 50%;
+    }
+  }
+
+  .project-hobby-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slower) var(--ease-default);
+  }
+
+  .project-hobby:hover .project-hobby-image img {
+    transform: scale(1.1);
+  }
+
+  .project-hobby-content {
+    padding: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .project-hobby-content {
+      width: 50%;
+    }
+  }
+
+  .project-hobby .project-title {
+    font-size: var(--text-headline-sm);
+  }
+
+  .project-hobby .project-link {
+    margin-top: auto;
+  }
+
+  .project-hobby .project-link .material-symbols-outlined {
+    transition: transform var(--duration-normal) var(--ease-default);
+  }
+
+  .project-hobby:hover .project-link .material-symbols-outlined {
+    transform: rotate(45deg);
+  }
+
+  /* CTA card (7 cols) */
+  .project-cta {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .project-cta { grid-column: span 7; }
+  }
+
+  .project-cta-glow {
+    position: absolute;
+    border-radius: var(--radius-full);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .project-cta-glow-tl {
+    top: 0;
+    left: 0;
+    width: 16rem;
+    height: 16rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+    filter: blur(60px);
+    transform: translate(-50%, -50%);
+  }
+
+  .project-cta-glow-br {
+    bottom: 0;
+    right: 0;
+    width: 24rem;
+    height: 24rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+    filter: blur(60px);
+    transform: translate(50%, 50%);
+  }
+
+  .project-cta-label {
+    font-size: var(--text-label-md);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    opacity: 0.8;
+    margin-bottom: var(--space-6);
+  }
+
+  .project-cta-title {
+    font-size: var(--text-headline-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-8);
+    max-width: 28rem;
+    line-height: var(--leading-tight);
+  }
+
+  .project-cta-button {
+    display: inline-block;
+    padding: var(--space-4) var(--space-10);
+    background-color: var(--color-surface-container-lowest);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: var(--text-body-lg);
+    transition: background-color var(--duration-normal) var(--ease-default);
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-cta-button:hover {
+    background-color: var(--color-on-primary);
   }
 </style>
