@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/navigation/Navigation.astro';
+import HeroSection from '../components/hero/HeroSection.astro';
+import BentoIntro from '../components/hero/BentoIntro.astro';
+import TimelineHeader from '../components/timeline/TimelineHeader.astro';
+import TimelinePlaceholder from '../components/timeline/TimelinePlaceholder.astro';
+import CoreCompetencies from '../components/competencies/CoreCompetencies.astro';
+import ProjectsSection from '../components/projects/ProjectsSection.astro';
+import InterestGrid from '../components/hobbies/InterestGrid.astro';
+import AboutSection from '../components/about/AboutSection.astro';
+import ContactSection from '../components/contact/ContactSection.astro';
+import Footer from '../components/shared/Footer.astro';
+---
+
+<Layout>
+  <Navigation />
+
+  <!-- Hero -->
+  <HeroSection />
+
+  <!-- Bento Intro -->
+  <BentoIntro />
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="experience-section">
+    <TimelineHeader />
+    <div class="container">
+      <TimelinePlaceholder />
+    </div>
+  </section>
+
+  <!-- Core Competencies -->
+  <CoreCompetencies />
+
+  <!-- Projects -->
+  <ProjectsSection />
+
+  <!-- Personal Interests -->
+  <InterestGrid />
+
+  <!-- About -->
+  <AboutSection />
+
+  <!-- Contact -->
+  <ContactSection />
+
+  <!-- Footer -->
+  <Footer />
+</Layout>
+
+<style>
+  .experience-section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-12);
+  }
+</style>

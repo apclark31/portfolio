@@ -1,0 +1,47 @@
+---
+interface Props {
+  href?: string;
+  icon?: string;
+  class?: string;
+}
+
+const { href, icon, class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag href={href} class={`secondary-btn ${className}`}>
+  {icon && <span class="material-symbols-outlined secondary-btn-icon">{icon}</span>}
+  <slot />
+</Tag>
+
+<style>
+  .secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--text-body-md);
+    color: var(--color-on-surface);
+    background-color: var(--color-surface-container-highest);
+    transition: background-color var(--duration-normal) var(--ease-default),
+                transform var(--duration-fast) var(--ease-default);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .secondary-btn:hover {
+    background-color: var(--color-surface-variant);
+  }
+
+  .secondary-btn:active {
+    transform: scale(0.95);
+  }
+
+  .secondary-btn-icon {
+    font-size: 1.25rem;
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+/* "The Balance of Precision & Passion" bento section */
+---
+
+<section class="bento-intro">
+  <div class="bento-intro-inner container">
+    <div class="bento-grid">
+      <!-- Main Intro Card -->
+      <div class="bento-card bento-card-main">
+        <h2 class="bento-title font-headline">The Balance of Precision &amp; Passion</h2>
+        <p class="bento-text font-body">
+          My philosophy is simple: <strong>The best digital tools feel human.</strong>
+          In my professional life, I optimize conversion funnels and build robust
+          design systems. Outside of the office, I channel that same creative energy
+          into personal passion projects — from generative art to custom-built keyboards.
+        </p>
+      </div>
+
+      <!-- Stats Card -->
+      <div class="bento-card bento-card-stats">
+        <span class="material-symbols-outlined bento-stats-icon">monitoring</span>
+        <div class="bento-stats-content">
+          <div class="bento-stats-number font-headline">12+</div>
+          <div class="bento-stats-label font-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bento-intro {
+    padding-block: var(--space-24);
+    background-color: var(--color-surface-container-low);
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .bento-card {
+    border-radius: var(--radius-4xl);
+    padding: var(--space-10);
+  }
+
+  @media (min-width: 1024px) {
+    .bento-card {
+      padding: var(--space-16);
+    }
+  }
+
+  .bento-card-main {
+    background-color: var(--color-surface-container-lowest);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bento-title {
+    font-size: var(--text-headline-md);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    color: var(--color-on-surface);
+  }
+
+  .bento-text {
+    font-size: var(--text-body-lg);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .bento-card-stats {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+  }
+
+  .bento-stats-icon {
+    font-size: 2.5rem;
+  }
+
+  .bento-stats-number {
+    font-size: var(--text-display-md);
+    font-weight: 900;
+    margin-bottom: var(--space-1);
+  }
+
+  .bento-stats-label {
+    font-size: var(--text-body-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,188 @@
+---
+/* Glassmorphic fixed navigation bar */
+---
+
+<nav class="nav glass" id="main-nav">
+  <div class="nav-inner container">
+    <a href="#" class="nav-logo font-headline">The Curator</a>
+
+    <div class="nav-links">
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#about" class="nav-link" data-section="about">About</a>
+    </div>
+
+    <a href="#contact" class="nav-cta">Contact</a>
+
+    <!-- Mobile menu button -->
+    <button class="nav-mobile-toggle" aria-label="Toggle menu" id="mobile-menu-btn">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile-menu" id="mobile-menu">
+    <a href="#experience" class="nav-mobile-link">Experience</a>
+    <a href="#projects" class="nav-mobile-link">Projects</a>
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#contact" class="nav-mobile-link nav-cta" style="text-align: center;">Contact</a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: var(--space-4);
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+  }
+
+  .nav-links {
+    display: none;
+    gap: var(--space-8);
+    align-items: center;
+    font-family: var(--font-headline);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-mobile-toggle {
+      display: none;
+    }
+  }
+
+  .nav-link {
+    color: var(--color-on-surface-variant);
+    font-size: var(--text-body-md);
+    transition: color var(--duration-normal) var(--ease-default);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--space-1);
+  }
+
+  .nav-cta {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    transition: opacity var(--duration-normal) var(--ease-default),
+                transform var(--duration-fast) var(--ease-default);
+  }
+
+  .nav-cta:hover {
+    opacity: 0.85;
+  }
+
+  .nav-cta:active {
+    transform: scale(0.95);
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-surface);
+  }
+
+  @media (min-width: 768px) {
+    .nav-cta {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nav-cta {
+      display: none;
+    }
+  }
+
+  .nav-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8) var(--space-6);
+  }
+
+  .nav-mobile-menu.open {
+    display: flex;
+  }
+
+  .nav-mobile-link {
+    font-family: var(--font-headline);
+    font-size: var(--text-title-md);
+    color: var(--color-on-surface-variant);
+    padding: var(--space-3) 0;
+    transition: color var(--duration-normal) var(--ease-default);
+  }
+
+  .nav-mobile-link:hover {
+    color: var(--color-primary);
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('open');
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (icon) {
+      icon.textContent = menu?.classList.contains('open') ? 'close' : 'menu';
+    }
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu?.classList.remove('open'));
+  });
+
+  // Active section tracking via IntersectionObserver
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('data-section') === id);
+          });
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -60% 0px' }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
