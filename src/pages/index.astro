@@ -5,7 +5,7 @@ import Navigation from '../components/navigation/Navigation.astro';
 import HeroSection from '../components/hero/HeroSection.astro';
 import BentoIntro from '../components/hero/BentoIntro.astro';
 import FloatingGallery from '../components/hero/FloatingGallery.astro';
-import TimelinePlaceholder from '../components/timeline/TimelinePlaceholder.astro';
+import Timeline from '../components/timeline/Timeline';
 import CoreCompetencies from '../components/competencies/CoreCompetencies.astro';
 import ProjectsSection from '../components/projects/ProjectsSection.astro';
 import InterestGrid from '../components/hobbies/InterestGrid.astro';
@@ -56,7 +56,7 @@ const hobbiesData = allHobbies
           View Full Timeline
         </GradientButton>
       </div>
-      <TimelinePlaceholder entries={previewEntries} />
+      <Timeline entries={previewEntries} preview client:visible />
     </div>
   </section>
 

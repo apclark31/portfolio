@@ -1,6 +1,6 @@
 # Handoff & Progress Tracker
 
-## Current State: Phase 3 Complete
+## Current State: Phase 5 Complete
 Last updated: 2026-03-29
 
 ---
@@ -44,30 +44,32 @@ Last updated: 2026-03-29
 - [ ] **Pending:** Alex needs to verify exact job titles, date ranges, and descriptions — current data is from partial LinkedIn scrape
 - [ ] **Pending:** Case study content collection (MDX) deferred to Phase 5
 
-### Phase 4: GSAP Timeline
-- [ ] Install GSAP + ScrollTrigger
-- [ ] Build `Timeline.tsx` React island replacing `TimelinePlaceholder.astro`
-- [ ] Implement scroll-driven animations:
-  - Center line draws on scroll (`scaleY` scrub)
-  - Entries fade in + slide from their side (left/right offset)
-  - Entry images parallax at 0.8x scroll speed
-  - Milestone dots scale from 0 on reveal
-- [ ] Mobile: single-column, left-aligned line, vertical-only reveals
-- [ ] `prefers-reduced-motion` disables animations
-- [ ] `gsap.matchMedia()` for responsive breakpoints
-- [ ] Call `ScrollTrigger.refresh()` after images load
+### Phase 4: GSAP Timeline (Done)
+- [x] Installed GSAP 3.14 + ScrollTrigger
+- [x] Built `Timeline.tsx` React island with scroll-driven animations
+- [x] Center line draws on scroll (`scaleY` scrub)
+- [x] Entries fade in + slide from their side (left/right offset, 60px)
+- [x] Entry images parallax (yPercent -8 to 8, scrubbed)
+- [x] Milestone dots scale from 0 with back ease on reveal
+- [x] Mobile: simpler vertical fade-up reveals via `gsap.matchMedia()`
+- [x] `prefers-reduced-motion` disables all GSAP animations
+- [x] `ScrollTrigger.refresh()` called after all images load
+- [x] Homepage uses `Timeline` in preview mode (no GSAP, no center line)
+- [x] Experience page uses `Timeline` with `client:visible` for full animations
 
-### Phase 5: Case Study Overlay
-- [ ] Install nanostores
-- [ ] Create `src/stores/caseStudy.ts` shared atom
-- [ ] Build `CaseStudyOverlay.tsx` React island
-- [ ] Slide-in panel: right on desktop (~60% width), bottom sheet on mobile
-- [ ] GSAP animation for open/close
-- [ ] Backdrop dim (`bg-black/40 backdrop-blur-sm`)
-- [ ] Scroll position preservation (store scrollY, lock body, restore on close)
-- [ ] URL hash sync (`#case-study/slug`) + browser Back button closes overlay
-- [ ] Content layout: hero image, metrics row, MDX body, "Back to Timeline" button
-- [ ] Wire "View Case Study" links in timeline to overlay
+### Phase 5: Case Study Overlay (Done)
+- [x] Installed nanostores + @nanostores/react
+- [x] Created `src/stores/caseStudy.ts` shared atom with open/close helpers
+- [x] Built `CaseStudyOverlay.tsx` React island with `client:load`
+- [x] Slide-in panel: right 60% on desktop, bottom sheet on mobile
+- [x] GSAP animations for open/close (xPercent on desktop, yPercent on mobile)
+- [x] Backdrop dim with blur
+- [x] Scroll position preservation (stores scrollY, locks body, restores on close)
+- [x] URL hash sync (`#case-study/slug`) + browser Back button closes overlay
+- [x] Escape key closes overlay
+- [x] Content layout: hero image, company meta, description, placeholder for full case study MDX
+- [x] "View Case Study" button in Timeline wired to open overlay via nanostores
+- [ ] **Pending:** Real case study MDX content (deferred to content phase)
 
 ### Phase 6: Polish
 - [ ] Convert FloatingGallery to React island with smoother scroll behavior

@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/navigation/Navigation.astro';
 import TimelineHeader from '../components/timeline/TimelineHeader.astro';
-import TimelinePlaceholder from '../components/timeline/TimelinePlaceholder.astro';
+import Timeline from '../components/timeline/Timeline';
+import CaseStudyOverlay from '../components/case-study/CaseStudyOverlay';
 import Footer from '../components/shared/Footer.astro';
 
 const allEntries = await getCollection('timeline');
@@ -18,10 +19,11 @@ const entries = allEntries
   <section class="experience-page">
     <TimelineHeader />
     <div class="container">
-      <TimelinePlaceholder entries={entries} />
+      <Timeline entries={entries} client:visible />
     </div>
   </section>
 
+  <CaseStudyOverlay client:load />
   <Footer />
 </Layout>
 

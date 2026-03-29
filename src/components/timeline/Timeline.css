@@ -1,0 +1,218 @@
+/* Timeline React island styles — mirrors TimelinePlaceholder.astro styles */
+
+.tl-entries {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+/* Center line */
+.tl-line {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(0, 103, 93, 0.4), rgba(0, 103, 93, 0.1), transparent);
+  transform: translateX(-50%);
+  transform-origin: top center;
+}
+
+@media (min-width: 768px) {
+  .tl-line {
+    display: block;
+  }
+}
+
+/* Entry layout */
+.tl-entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .tl-entry {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tl-entry--right .tl-entry-content {
+    order: 1;
+    text-align: right;
+  }
+  .tl-entry--right .tl-entry-image-wrap {
+    order: 2;
+  }
+  .tl-entry--right .tl-entry-tags {
+    justify-content: flex-end;
+  }
+
+  .tl-entry--left .tl-entry-content {
+    order: 2;
+  }
+  .tl-entry--left .tl-entry-image-wrap {
+    order: 1;
+  }
+}
+
+.tl-entry-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tl-date-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-container-high);
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-headline);
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+}
+
+.tl-date-badge--current {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+@media (min-width: 768px) {
+  .tl-entry--right .tl-date-badge {
+    align-self: flex-end;
+  }
+}
+
+.tl-entry-role {
+  font-size: var(--text-headline-md);
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.tl-entry-company {
+  font-size: var(--text-title-md);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.tl-entry-desc {
+  font-size: var(--text-body-md);
+  color: var(--color-on-surface-variant);
+  line-height: var(--leading-relaxed);
+}
+
+.tl-entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.tl-case-study-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--text-body-sm);
+  transition: gap 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.tl-case-study-link:hover {
+  gap: var(--space-2);
+}
+
+.tl-case-study-link .material-symbols-outlined {
+  font-size: 0.875rem;
+}
+
+/* Image side */
+.tl-entry-image-wrap {
+  position: relative;
+}
+
+.tl-entry-image-glow {
+  position: absolute;
+  inset: -1rem;
+  background-color: rgba(0, 103, 93, 0.05);
+  border-radius: var(--radius-3xl);
+  filter: blur(30px);
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tl-entry:hover .tl-entry-image-glow {
+  background-color: rgba(0, 103, 93, 0.1);
+}
+
+.tl-entry-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-surface-container-low);
+  box-shadow: var(--shadow-xl);
+}
+
+.tl-entry-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tl-entry:hover .tl-entry-image img {
+  transform: scale(1.05);
+}
+
+/* Milestone marker */
+.tl-marker {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-surface);
+  border: 4px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  z-index: 10;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .tl-marker {
+    display: flex;
+  }
+
+  .tl-entry--right .tl-marker {
+    left: calc(-1 * var(--space-6));
+    transform: translate(-50%, -50%);
+  }
+
+  .tl-entry--left .tl-marker {
+    right: calc(-1 * var(--space-6));
+    transform: translate(50%, -50%);
+  }
+}
+
+.tl-marker-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.tl-marker-dot--pulse {
+  animation: tl-pulse 2s infinite;
+}
+
+@keyframes tl-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
