@@ -1,0 +1,230 @@
+---
+/* Contact section: split layout — info on left, form on right */
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Panel -->
+      <div class="contact-info">
+        <h2 class="contact-info-title font-headline">Let's Start a Conversation</h2>
+        <p class="contact-info-desc font-body">
+          Whether you have a project that needs technical and creative direction, or
+          you want to chat about design philosophy, I'm listening.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="material-symbols-outlined contact-detail-icon">mail</span>
+            <span>hello@digitalcurator.com</span>
+          </div>
+          <div class="contact-detail">
+            <span class="material-symbols-outlined contact-detail-icon">location_on</span>
+            <span>Portland, Oregon</span>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <a href="https://www.linkedin.com/in/alex-p-clark/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+            LinkedIn <span class="material-symbols-outlined">arrow_outward</span>
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+            GitHub <span class="material-symbols-outlined">arrow_outward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form Panel -->
+      <div class="contact-form-wrap">
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-field">
+            <label for="name" class="form-label font-label">Name</label>
+            <input type="text" id="name" name="name" required class="form-input" placeholder="Your name" />
+          </div>
+
+          <div class="form-field">
+            <label for="email" class="form-label font-label">Email</label>
+            <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-field">
+            <label for="message" class="form-label font-label">Message</label>
+            <textarea id="message" name="message" rows="5" required class="form-input form-textarea" placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit signature-gradient">
+            Send Message
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding-block: var(--space-24);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    border-radius: var(--radius-4xl);
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Info panel */
+  .contact-info {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: var(--space-10);
+    border-radius: var(--radius-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .contact-info-title {
+    font-size: var(--text-headline-md);
+    font-weight: 800;
+  }
+
+  .contact-info-desc {
+    font-size: var(--text-body-md);
+    opacity: 0.85;
+    line-height: var(--leading-relaxed);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: auto;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-body-sm);
+  }
+
+  .contact-detail-icon {
+    font-size: 1.25rem;
+    opacity: 0.7;
+  }
+
+  .contact-social {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .contact-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    opacity: 0.8;
+    transition: opacity var(--duration-normal) var(--ease-default);
+  }
+
+  .contact-social-link:hover {
+    opacity: 1;
+  }
+
+  .contact-social-link .material-symbols-outlined {
+    font-size: 0.875rem;
+  }
+
+  /* Form panel */
+  .contact-form-wrap {
+    background-color: var(--color-surface-container-lowest);
+    padding: var(--space-10);
+    border-radius: var(--radius-3xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-label {
+    font-size: var(--text-label-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-on-surface-variant);
+  }
+
+  .form-input {
+    font-family: var(--font-body);
+    font-size: var(--text-body-md);
+    padding: var(--space-3) var(--space-4);
+    border: none;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-container-low);
+    color: var(--color-on-surface);
+    transition: background-color var(--duration-normal) var(--ease-default),
+                box-shadow var(--duration-normal) var(--ease-default);
+    outline: none;
+  }
+
+  .form-input:focus {
+    background-color: var(--color-surface-container-highest);
+    box-shadow: 0 0 0 2px rgba(0, 103, 93, 0.2);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-outline-variant);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    border: none;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--text-body-md);
+    color: var(--color-on-primary-container);
+    cursor: pointer;
+    transition: opacity var(--duration-normal) var(--ease-default),
+                transform var(--duration-fast) var(--ease-default);
+  }
+
+  .form-submit:hover {
+    opacity: 0.9;
+  }
+
+  .form-submit:active {
+    transform: scale(0.97);
+  }
+
+  .form-submit .material-symbols-outlined {
+    font-size: 1.25rem;
+  }
+</style>

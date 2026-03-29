@@ -1,0 +1,242 @@
+---
+import TagPill from '../shared/TagPill.astro';
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <!-- About Hero -->
+    <div class="about-hero">
+      <div class="about-hero-text">
+        <span class="section-label">A Human Behind the Code</span>
+        <h2 class="about-title font-headline">
+          Curating Digital Experiences with <em>Intentionality.</em>
+        </h2>
+        <p class="about-desc font-body">
+          I bridge the gap between creative engineering and goal-oriented human
+          experiences. My approach isn't just about building — it's about solving
+          the right problems at the right moment.
+        </p>
+      </div>
+
+      <div class="about-hero-portrait">
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+          alt="Alex Clark"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- About Bento -->
+    <div class="about-bento">
+      <!-- Precision Workflow -->
+      <div class="about-card about-card-workflow">
+        <span class="material-symbols-outlined about-card-icon">architecture</span>
+        <h4 class="about-card-title font-headline">Precision Workflow</h4>
+        <p class="about-card-desc font-body">
+          A builder's obsession with the details. Each decision is filtered through a rigor of
+          Research, System Design, and Refinement.
+        </p>
+        <div class="workflow-steps">
+          <span class="workflow-step">01 — Research</span>
+          <span class="workflow-step">02 — System Design</span>
+          <span class="workflow-step">03 — Refinement</span>
+        </div>
+      </div>
+
+      <!-- Fret Atlas Hobby -->
+      <div class="about-card about-card-hobby">
+        <h4 class="about-card-title font-headline">The Fret Atlas</h4>
+        <p class="about-card-desc font-body">
+          After hours, I unwind by building interactive guitar theory tools. Because 'Thursday I don't
+          care about you' is better when you know the chords.
+        </p>
+        <a href="#projects" class="about-card-link">See My Hobbies <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="about-card about-card-stack">
+        <h4 class="about-card-title font-headline">Tech Stack</h4>
+        <ul class="stack-list">
+          <li class="stack-item">React</li>
+          <li class="stack-item">Next.js</li>
+          <li class="stack-item">TypeScript</li>
+          <li class="stack-item">GSAP</li>
+          <li class="stack-item">Figma</li>
+        </ul>
+      </div>
+
+      <!-- Philosophy Quote -->
+      <div class="about-card about-card-quote">
+        <blockquote class="about-quote font-body">
+          "Design is not just what it looks like and feels like. Design is how it
+          works. But for the curator, design is about what you <em>choose</em>
+          to show."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding-block: var(--space-24);
+    background-color: var(--color-surface-container-low);
+  }
+
+  .about-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-hero {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .about-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .about-title {
+    font-size: clamp(2rem, 4vw, var(--text-display-md));
+    font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+    line-height: var(--leading-snug);
+  }
+
+  .about-title em {
+    color: var(--color-primary);
+  }
+
+  .about-desc {
+    font-size: var(--text-body-lg);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .about-hero-portrait {
+    border-radius: var(--radius-3xl);
+    overflow: hidden;
+    aspect-ratio: 5 / 6;
+    transform: rotate(2deg);
+    transition: transform var(--duration-slow) var(--ease-default);
+  }
+
+  .about-hero-portrait:hover {
+    transform: rotate(0deg);
+  }
+
+  .about-hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Bento grid */
+  .about-bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .about-bento {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .about-card {
+    background-color: var(--color-surface-container-lowest);
+    border-radius: var(--radius-3xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .about-card-icon {
+    font-size: 2rem;
+    color: var(--color-on-surface);
+  }
+
+  .about-card-title {
+    font-size: var(--text-title-lg);
+    font-weight: 700;
+    color: var(--color-on-surface);
+  }
+
+  .about-card-desc {
+    font-size: var(--text-body-md);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .about-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    margin-top: auto;
+  }
+
+  .about-card-link .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .workflow-step {
+    font-family: var(--font-label);
+    font-size: var(--text-body-sm);
+    color: var(--color-on-surface-variant);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid rgba(171, 173, 175, 0.15);
+  }
+
+  .stack-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .stack-item {
+    font-size: var(--text-body-md);
+    font-weight: 500;
+    color: var(--color-on-surface);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid rgba(171, 173, 175, 0.15);
+  }
+
+  .about-card-quote {
+    background-color: var(--color-surface-container);
+  }
+
+  .about-quote {
+    font-size: var(--text-body-lg);
+    font-style: italic;
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .about-quote em {
+    color: var(--color-primary);
+    font-style: normal;
+    font-weight: 700;
+  }
+</style>

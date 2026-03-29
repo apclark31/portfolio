@@ -1,0 +1,272 @@
+---
+/* Core Competencies bento grid */
+---
+
+<section class="competencies">
+  <div class="container">
+    <h2 class="competencies-title font-headline">Core Competencies</h2>
+
+    <div class="competencies-grid">
+      <!-- CRO - Large -->
+      <div class="comp-card comp-card-cro">
+        <div class="comp-card-content">
+          <span class="material-symbols-outlined comp-icon">auto_awesome</span>
+          <h4 class="comp-card-title font-headline">Conversion Rate Optimization</h4>
+          <p class="comp-card-desc">
+            Transforming user behavior through psychological design patterns and data-driven iterations.
+          </p>
+        </div>
+        <div class="comp-card-glow"></div>
+      </div>
+
+      <!-- Technical Feats -->
+      <div class="comp-card comp-card-tech">
+        <h4 class="comp-card-title font-headline">Technical Feats</h4>
+        <p class="comp-card-desc">
+          Building performant, accessible, and scalable front-end architectures.
+        </p>
+        <div class="comp-card-icon-circle">
+          <span class="material-symbols-outlined">terminal</span>
+        </div>
+      </div>
+
+      <!-- Interface Design -->
+      <div class="comp-card comp-card-design">
+        <h4 class="comp-card-title font-headline">Interface Design</h4>
+        <div class="comp-card-bar"></div>
+        <p class="comp-card-desc">
+          Focusing on clarity, editorial typography, and spatial harmony.
+        </p>
+      </div>
+
+      <!-- Strategic Thinking - Large -->
+      <div class="comp-card comp-card-strategy">
+        <div class="comp-card-strategy-inner">
+          <div>
+            <h4 class="comp-card-title font-headline">Strategic Product Thinking</h4>
+            <p class="comp-card-desc">
+              Defining the 'Why' before the 'How' to ensure business goals align with user needs.
+            </p>
+          </div>
+          <div class="comp-card-circles">
+            <div class="circle circle-outer"></div>
+            <div class="circle circle-inner"></div>
+            <span class="material-symbols-outlined circle-icon" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .competencies {
+    padding-block: var(--space-28);
+  }
+
+  .competencies-title {
+    font-size: var(--text-headline-lg);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: var(--space-12);
+    color: var(--color-on-surface);
+  }
+
+  .competencies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .competencies-grid {
+      grid-template-columns: repeat(3, 1fr);
+      min-height: 500px;
+    }
+  }
+
+  .comp-card {
+    border-radius: var(--radius-3xl);
+    padding: var(--space-10);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comp-card-title {
+    font-size: var(--text-headline-sm);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+
+  .comp-card-desc {
+    max-width: 28rem;
+    line-height: var(--leading-relaxed);
+  }
+
+  .comp-icon {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-6);
+    display: block;
+  }
+
+  /* CRO card */
+  .comp-card-cro {
+    background-color: var(--color-surface-container-low);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    .comp-card-cro {
+      grid-column: span 2;
+    }
+  }
+
+  .comp-card-cro .comp-card-desc {
+    color: var(--color-on-surface-variant);
+  }
+
+  .comp-card-glow {
+    position: absolute;
+    right: -5rem;
+    bottom: -5rem;
+    width: 20rem;
+    height: 20rem;
+    background-color: rgba(106, 242, 222, 0.15);
+    border-radius: var(--radius-full);
+    filter: blur(60px);
+    transition: background-color var(--duration-slow) var(--ease-default);
+  }
+
+  .comp-card-cro:hover .comp-card-glow {
+    background-color: rgba(106, 242, 222, 0.3);
+  }
+
+  /* Technical card */
+  .comp-card-tech {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform var(--duration-normal) var(--ease-default);
+  }
+
+  .comp-card-tech:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  .comp-card-tech .comp-card-desc {
+    color: rgba(192, 255, 243, 0.8);
+    margin-bottom: var(--space-6);
+  }
+
+  .comp-card-icon-circle {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-on-primary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comp-card-icon-circle .material-symbols-outlined {
+    color: var(--color-primary);
+  }
+
+  /* Design card */
+  .comp-card-design {
+    background-color: var(--color-surface-container-high);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .comp-card-design .comp-card-desc {
+    color: var(--color-on-surface-variant);
+  }
+
+  .comp-card-bar {
+    height: 4px;
+    width: 3rem;
+    background-color: var(--color-primary);
+    margin-bottom: var(--space-6);
+    transition: width var(--duration-slow) var(--ease-default);
+  }
+
+  .comp-card-design:hover .comp-card-bar {
+    width: 100%;
+  }
+
+  /* Strategy card */
+  .comp-card-strategy {
+    background-color: var(--color-surface-container-low);
+  }
+
+  @media (min-width: 768px) {
+    .comp-card-strategy {
+      grid-column: span 2;
+    }
+  }
+
+  .comp-card-strategy .comp-card-desc {
+    color: var(--color-on-surface-variant);
+  }
+
+  .comp-card-strategy-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  .comp-card-circles {
+    display: none;
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .comp-card-circles {
+      display: block;
+    }
+  }
+
+  .circle {
+    position: absolute;
+    border: 2px solid rgba(0, 103, 93, 0.2);
+    border-radius: var(--radius-full);
+    transition: transform var(--duration-slower) var(--ease-default);
+  }
+
+  .circle-outer {
+    inset: 0;
+  }
+
+  .circle-inner {
+    inset: 1rem;
+    border-color: rgba(0, 103, 93, 0.4);
+  }
+
+  .comp-card-strategy:hover .circle-outer {
+    transform: scale(1.25);
+  }
+
+  .comp-card-strategy:hover .circle-inner {
+    transform: scale(1.1);
+  }
+
+  .circle-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 2rem;
+  }
+</style>

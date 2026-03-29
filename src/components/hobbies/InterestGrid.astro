@@ -1,0 +1,86 @@
+---
+const interests = [
+  { icon: 'psychology', title: 'Philosophy', description: 'Exploring Stoic and Existential frameworks for modern design thinking.' },
+  { icon: 'coffee', title: 'V60 Brewing', description: 'Obsessed with variables — grind size, temperature, and extraction timing.' },
+  { icon: 'apartment', title: 'Brutalist Arch', description: 'Drawing inspiration from raw materials and honest structural expression.' },
+  { icon: 'graphic_eq', title: 'Ambient Synth', description: 'Designing soundscapes for deep-focus work and creative flow states.' },
+];
+---
+
+<section class="interests">
+  <div class="container">
+    <h2 class="interests-title font-headline">Personal Interests</h2>
+
+    <div class="interests-grid">
+      {interests.map((item) => (
+        <div class="interest-card">
+          <div class="interest-icon-wrap">
+            <span class="material-symbols-outlined interest-icon">{item.icon}</span>
+          </div>
+          <h4 class="interest-card-title font-headline">{item.title}</h4>
+          <p class="interest-card-desc font-body">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .interests {
+    padding-block: var(--space-24);
+    background-color: var(--color-surface);
+  }
+
+  .interests-title {
+    font-size: var(--text-headline-lg);
+    font-weight: 800;
+    margin-bottom: var(--space-12);
+    color: var(--color-on-surface);
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .interests-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .interest-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .interest-icon-wrap {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-xl);
+    background-color: var(--color-surface-container-low);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-2);
+  }
+
+  .interest-icon {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+
+  .interest-card-title {
+    font-size: var(--text-title-md);
+    font-weight: 700;
+    color: var(--color-on-surface);
+  }
+
+  .interest-card-desc {
+    font-size: var(--text-body-sm);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+/* Footer: "The Digital Curator" branding with social links */
+---
+
+<footer class="footer">
+  <div class="footer-inner container">
+    <div class="footer-logo font-headline">The Digital Curator.</div>
+
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/alex-p-clark/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      <a href="#" class="footer-link">Resume</a>
+    </div>
+
+    <div class="footer-copy">
+      &copy; {new Date().getFullYear()} The Digital Curator. Built with precision.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface-container-low);
+    padding-block: var(--space-12);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-logo {
+    font-size: var(--text-title-md);
+    font-weight: 900;
+    color: var(--color-on-surface);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+  }
+
+  .footer-link {
+    color: var(--color-on-surface-variant);
+    transition: color var(--duration-normal) var(--ease-default);
+  }
+
+  .footer-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 103, 93, 0.3);
+    text-underline-offset: 4px;
+  }
+
+  .footer-copy {
+    color: var(--color-on-surface-variant);
+    font-size: var(--text-label-md);
+    font-style: italic;
+  }
+</style>

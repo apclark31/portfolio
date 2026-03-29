@@ -1,0 +1,227 @@
+---
+import GradientButton from '../shared/GradientButton.astro';
+import TagPill from '../shared/TagPill.astro';
+---
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <span class="section-label">Selected Works</span>
+      <h2 class="projects-title font-headline">Digital Craft &amp; Functional Beauty</h2>
+      <p class="projects-desc font-body">
+        A curated collection of interfaces, experimental tools, and hobbies that
+        explore the intersection of high-performance engineering and
+        conversion-driven design.
+      </p>
+    </div>
+
+    <div class="projects-bento">
+      <!-- Main Project -->
+      <div class="project-card project-main">
+        <div class="project-card-image">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop"
+            alt="Analytics dashboard interface"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-card-tags">
+          <TagPill>React</TagPill>
+          <TagPill>CRO</TagPill>
+        </div>
+        <h3 class="project-card-title font-headline">Measurable</h3>
+        <p class="project-card-desc font-body">
+          A high-performance analytics dashboard designed to reduce cognitive load
+          while maximizing data-driven decision speed. Engineered with advanced
+          caching and sub-100ms interaction latency.
+        </p>
+        <a href="#" class="project-card-link">View Project <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+
+      <!-- Secondary Project -->
+      <div class="project-card project-secondary">
+        <span class="section-label">Specialized Tool</span>
+        <h3 class="project-card-title font-headline">CRO Toolkit</h3>
+        <p class="project-card-desc font-body">
+          A browser-based suite for conversion specialists. Real-time DOM
+          manipulation testing with visual performance auditing.
+        </p>
+        <div class="project-card-tags">
+          <TagPill>Performance</TagPill>
+          <TagPill>A/B Testing</TagPill>
+        </div>
+        <GradientButton href="#">Check It Out</GradientButton>
+      </div>
+
+      <!-- Hobby Project -->
+      <div class="project-card project-hobby">
+        <div class="project-card-image project-hobby-image">
+          <img
+            src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=300&fit=crop"
+            alt="Guitar fretboard close-up"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="project-card-title font-headline">Fret Atlas</h3>
+        <p class="project-card-desc font-body">
+          An interactive visualization engine for guitar theory. Bridging complex
+          musical scales with intuitive UI patterns.
+        </p>
+        <a href="#" class="project-card-link">Explore Hobby <span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="project-card project-cta signature-gradient">
+        <span class="section-label" style="color: rgba(255,255,255,0.7);">Open for Collaboration</span>
+        <h3 class="project-cta-title font-headline">
+          Have a project that needs a digital curator?
+        </h3>
+        <a href="#contact" class="project-cta-btn">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding-block: var(--space-24);
+  }
+
+  .projects-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-16);
+    max-width: 40rem;
+  }
+
+  .projects-title {
+    font-size: clamp(2rem, 5vw, var(--text-display-md));
+    font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+  }
+
+  .projects-desc {
+    font-size: var(--text-body-lg);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .projects-bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .projects-bento {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .project-main { grid-column: span 8; }
+    .project-secondary { grid-column: span 4; }
+    .project-hobby { grid-column: span 5; }
+    .project-cta { grid-column: span 7; }
+  }
+
+  .project-card {
+    border-radius: var(--radius-3xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .project-main {
+    background-color: var(--color-surface-container-lowest);
+  }
+
+  .project-secondary {
+    background-color: var(--color-surface-container-low);
+  }
+
+  .project-hobby {
+    background-color: var(--color-surface-container-lowest);
+  }
+
+  .project-cta {
+    color: var(--color-on-primary);
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .project-card-image {
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slow) var(--ease-default);
+  }
+
+  .project-card:hover .project-card-image img {
+    transform: scale(1.03);
+  }
+
+  .project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .project-card-title {
+    font-size: var(--text-headline-sm);
+    font-weight: 700;
+    color: var(--color-on-surface);
+  }
+
+  .project-card-desc {
+    font-size: var(--text-body-md);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .project-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    transition: gap var(--duration-normal) var(--ease-default);
+  }
+
+  .project-card-link:hover {
+    gap: var(--space-2);
+  }
+
+  .project-card-link .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .project-cta-title {
+    font-size: var(--text-headline-md);
+    font-weight: 800;
+    color: var(--color-on-primary);
+  }
+
+  .project-cta-btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-8);
+    background-color: var(--color-surface-container-lowest);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    transition: opacity var(--duration-normal) var(--ease-default);
+  }
+
+  .project-cta-btn:hover {
+    opacity: 0.9;
+  }
+</style>
