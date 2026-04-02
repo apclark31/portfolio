@@ -6,25 +6,33 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
 <section class="hero">
   <div class="hero-inner container">
     <div class="hero-content">
-      <div class="hero-badge">Now Available for New Projects</div>
+      <p class="hero-label font-label">eCommerce Leader &amp; CRO Specialist</p>
 
       <h1 class="hero-title font-headline">
-        Crafting <span class="hero-accent">Measurable</span><br />Experiences.
+        Alex Clark
       </h1>
 
       <p class="hero-description font-body">
-        I am a Design-Driven Developer &amp; CRO Specialist dedicated to
-        bridging the gap between aesthetic excellence and high-performance
-        metrics. Whether it's a corporate ecosystem or an experimental hobby
-        project, I curate every pixel with intent.
+        12+ years driving growth across eCommerce, conversion optimization,
+        front-end engineering, operations, analytics, and customer experience.
+        From building the tech to leading the strategy &mdash; I've done both.
       </p>
+
+      <div class="hero-disciplines">
+        <span class="hero-discipline">CRO &amp; A/B Testing</span>
+        <span class="hero-discipline">Front-End Engineering</span>
+        <span class="hero-discipline">eCommerce Operations</span>
+        <span class="hero-discipline">Analytics &amp; Data</span>
+        <span class="hero-discipline">UI/UX</span>
+        <span class="hero-discipline">Merchandising</span>
+      </div>
 
       <div class="hero-actions">
         <GradientButton href="/experience" icon="arrow_forward">
-          Explore My Experience
+          View Experience
         </GradientButton>
         <SecondaryButton href="/projects">
-          Check Out My Hobbies
+          Projects &amp; Tools
         </SecondaryButton>
       </div>
     </div>
@@ -33,21 +41,10 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
       <div class="hero-portrait">
         <img
           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&crop=face"
-          alt="Alex Clark — Professional Portrait"
+          alt="Alex Clark"
           class="hero-portrait-img"
           loading="eager"
         />
-      </div>
-
-      <!-- Floating stat card -->
-      <div class="hero-stat-card ghost-border">
-        <div class="hero-stat-indicator">
-          <span class="hero-stat-dot"></span>
-          <span class="hero-stat-label font-label">Live Stats</span>
-        </div>
-        <p class="hero-stat-text font-body">
-          98% User Satisfaction across all 2024 launches.
-        </p>
       </div>
     </div>
   </div>
@@ -78,34 +75,23 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
   .hero-content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
-  .hero-badge {
-    display: inline-block;
-    align-self: flex-start;
-    padding: var(--space-1) var(--space-4);
-    border-radius: var(--radius-full);
-    background-color: var(--color-surface-container-high);
-    color: var(--color-primary);
-    font-family: var(--font-label);
+  .hero-label {
     font-size: var(--text-label-md);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: var(--tracking-widest);
+    color: var(--color-primary);
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 6vw, var(--text-display-lg));
+    font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 800;
     letter-spacing: var(--tracking-tighter);
     line-height: var(--leading-tight);
     color: var(--color-on-surface);
-  }
-
-  .hero-accent {
-    color: var(--color-primary);
-    font-style: italic;
   }
 
   .hero-description {
@@ -113,6 +99,26 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     color: var(--color-on-surface-variant);
     line-height: var(--leading-relaxed);
     max-width: 36rem;
+  }
+
+  .hero-disciplines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-top: var(--space-2);
+  }
+
+  .hero-discipline {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-container);
+    color: var(--color-on-surface-variant);
+    font-family: var(--font-label);
+    font-size: var(--text-label-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
   }
 
   .hero-actions {
@@ -147,57 +153,5 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
   .hero-portrait:hover .hero-portrait-img {
     filter: grayscale(0%);
     transform: scale(1);
-  }
-
-  .hero-stat-card {
-    position: absolute;
-    bottom: calc(-1 * var(--space-6));
-    left: calc(-1 * var(--space-6));
-    background-color: var(--color-surface-container-lowest);
-    padding: var(--space-6);
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-xl);
-    max-width: 200px;
-  }
-
-  .hero-stat-indicator {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-2);
-  }
-
-  .hero-stat-dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: var(--radius-full);
-    background-color: var(--color-primary);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  .hero-stat-label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-widest);
-    color: var(--color-on-surface-variant);
-  }
-
-  .hero-stat-text {
-    font-size: var(--text-body-sm);
-    font-weight: 500;
-    color: var(--color-on-surface);
-  }
-
-  @media (max-width: 1023px) {
-    .hero-stat-card {
-      bottom: calc(-1 * var(--space-4));
-      left: var(--space-2);
-    }
   }
 </style>

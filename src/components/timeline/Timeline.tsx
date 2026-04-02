@@ -253,14 +253,15 @@ export default function Timeline({ entries, preview = false }: Props) {
                 loading="lazy"
               />
             </div>
-            {!preview && (
-              <div className="tl-marker">
-                <div
-                  className={`tl-marker-dot ${entry.isCurrent ? 'tl-marker-dot--pulse' : ''}`}
-                />
-              </div>
-            )}
           </div>
+
+          {!preview && (
+            <div className="tl-marker">
+              <div
+                className={`tl-marker-dot ${entry.isCurrent ? 'tl-marker-dot--pulse' : ''}`}
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>

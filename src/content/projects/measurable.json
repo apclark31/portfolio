@@ -1,9 +1,9 @@
 {
   "title": "Measurable",
-  "description": "A high-performance analytics dashboard designed to reduce cognitive load while maximizing data-driven decision speed. Engineered with advanced caching and sub-100ms interaction latency.",
+  "description": "A high-performance analytics dashboard for eCommerce teams. Designed to reduce cognitive load while surfacing the metrics that drive decisions. Built with React, advanced caching, and sub-100ms interaction latency.",
   "type": "main",
-  "tags": ["React", "CRO"],
+  "tags": ["React", "Analytics"],
   "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
-  "link": "#",
+  "github": "https://github.com/apclark31",
   "order": 0
 }

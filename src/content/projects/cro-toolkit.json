@@ -1,9 +1,9 @@
 {
   "title": "CRO Toolkit",
-  "description": "A browser-based suite for conversion specialists. Real-time DOM manipulation testing with visual performance auditing.",
+  "description": "A browser-based suite for conversion specialists. Real-time DOM inspection, visual performance auditing, and quick A/B test prototyping without touching code.",
   "type": "secondary",
-  "badge": "Specialized Tool",
-  "hashtags": ["#Performance", "#A/BTesting"],
-  "link": "#",
+  "badge": "Browser Extension",
+  "hashtags": ["#CRO", "#DevTools"],
+  "github": "https://github.com/apclark31",
   "order": 1
 }

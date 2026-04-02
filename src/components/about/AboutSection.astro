@@ -1,5 +1,5 @@
 ---
-/* About section — matches about_contact_me mockup bento layout */
+/* About section */
 ---
 
 <section class="about" id="about">
@@ -7,14 +7,15 @@
     <!-- About Hero -->
     <div class="about-hero">
       <div class="about-hero-text">
-        <span class="section-label">The Human Behind The Code</span>
+        <span class="section-label">About</span>
         <h1 class="about-title font-headline">
-          Curating Digital Experiences with <span class="about-title-accent">Intentionality.</span>
+          eCommerce from <span class="about-title-accent">every angle.</span>
         </h1>
         <p class="about-desc font-body">
-          I bridge the gap between complex engineering and elegant human
-          experiences. My approach isn't just about building — it's about
-          selecting the right pieces to tell a cohesive story.
+          I've built eCommerce operations from the ground up, optimized
+          conversion funnels at scale, written the front-end code, managed
+          the analytics, and led the teams. The common thread is making
+          digital commerce work better &mdash; measurably.
         </p>
       </div>
 
@@ -27,38 +28,38 @@
       </div>
     </div>
 
-    <!-- About Bento (6-col grid matching mockup) -->
+    <!-- About Bento (6-col grid) -->
     <div class="about-bento">
-      <!-- Precision Workflow (spans 3) -->
+      <!-- How I Work (spans 3) -->
       <div class="about-card about-card-workflow">
         <div>
           <span class="material-symbols-outlined about-card-icon">architecture</span>
-          <h3 class="about-card-title font-headline">Precision Workflow</h3>
+          <h3 class="about-card-title font-headline">How I Work</h3>
           <p class="about-card-desc font-body">
-            My process begins with deep empathy and ends with pixel-perfect execution.
-            I utilize a modular architecture approach, ensuring that every design system
-            component is reusable, accessible, and performant.
+            I start with the data, scope the opportunity, build a hypothesis,
+            and ship a test. Rinse and repeat. Every initiative ties back to
+            a metric that matters &mdash; revenue, conversion rate, or efficiency.
           </p>
         </div>
         <div class="workflow-tags">
-          <span class="workflow-tag">Research</span>
-          <span class="workflow-tag">System Design</span>
-          <span class="workflow-tag">Refinement</span>
+          <span class="workflow-tag">Data-Driven</span>
+          <span class="workflow-tag">Ship Fast</span>
+          <span class="workflow-tag">Iterate</span>
         </div>
       </div>
 
-      <!-- Fret Atlas Hobby (spans 3) -->
+      <!-- Side Projects (spans 3) -->
       <div class="about-card about-card-hobby">
         <div class="about-card-hobby-inner">
-          <span class="material-symbols-outlined about-hobby-icon">music_note</span>
-          <h3 class="about-card-title font-headline about-hobby-title">The Fret Atlas</h3>
+          <span class="material-symbols-outlined about-hobby-icon">code</span>
+          <h3 class="about-card-title font-headline about-hobby-title">Builder at Heart</h3>
           <p class="about-card-desc about-hobby-desc font-body">
-            Beyond the screen, I'm a guitarist exploring the geometry of the fretboard.
-            This hobby — which I call my 'Fret Atlas' — mirrors my technical work: it's
-            about understanding a complex system to create something beautiful and harmonious.
+            Outside of work, I build tools and apps &mdash; a guitar theory
+            visualizer, a CRO toolkit, and more. Same discipline, different domain.
+            It keeps the engineering skills sharp and the ideas fresh.
           </p>
           <a href="/projects" class="about-hobby-link">
-            See the influence <span class="material-symbols-outlined">arrow_forward</span>
+            See what I've built <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
         <div class="about-hobby-circle"></div>
@@ -66,36 +67,36 @@
 
       <!-- Tech Stack (spans 2) -->
       <div class="about-card about-card-stack">
-        <h4 class="about-card-title font-headline">Tech Stack</h4>
+        <h4 class="about-card-title font-headline">Tools &amp; Platforms</h4>
         <ul class="stack-list">
           <li class="stack-item">
             <span class="stack-dot"></span>
-            <span>React &amp; Next.js</span>
+            <span>React, TypeScript, Astro</span>
           </li>
           <li class="stack-item">
             <span class="stack-dot"></span>
-            <span>TypeScript</span>
+            <span>SFCC, Shopify, Magento</span>
           </li>
           <li class="stack-item">
             <span class="stack-dot"></span>
-            <span>CSS &amp; Design Systems</span>
+            <span>GA4, Adobe Analytics, Heap</span>
           </li>
           <li class="stack-item">
             <span class="stack-dot"></span>
-            <span>Figma Architecture</span>
+            <span>Optimizely, VWO, AB Tasty</span>
           </li>
         </ul>
       </div>
 
-      <!-- Philosophy Quote (spans 4) -->
+      <!-- Approach (spans 4) -->
       <div class="about-card about-card-quote">
         <p class="about-quote font-headline">
-          "Design is not just what it looks like and feels like. Design is how it
-          works. But for the curator, design is also about what you choose to leave out."
+          "The best optimization isn't the one that wins the A/B test &mdash;
+          it's the one that changes how the team thinks about the customer."
         </p>
         <div class="about-quote-attribution">
           <div class="about-quote-line"></div>
-          <span class="about-quote-label font-label">Design Philosophy</span>
+          <span class="about-quote-label font-label">Approach</span>
         </div>
       </div>
     </div>
@@ -246,7 +247,7 @@
     letter-spacing: var(--tracking-tight);
   }
 
-  /* Hobby card (primary bg) */
+  /* Side projects card (primary bg) */
   .about-card-hobby {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
@@ -354,7 +355,7 @@
     flex-shrink: 0;
   }
 
-  /* Philosophy Quote card */
+  /* Approach quote card */
   .about-card-quote {
     background-color: var(--color-surface-bright);
     border: 1px solid rgba(171, 173, 175, 0.1);

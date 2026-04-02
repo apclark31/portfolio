@@ -26,6 +26,8 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
     link: z.string().optional(),
+    url: z.string().optional(),
+    github: z.string().optional(),
     badge: z.string().optional(),
     hashtags: z.array(z.string()).default([]),
     order: z.number(),

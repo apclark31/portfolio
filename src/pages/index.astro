@@ -3,8 +3,6 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/navigation/Navigation.astro';
 import HeroSection from '../components/hero/HeroSection.astro';
-import BentoIntro from '../components/hero/BentoIntro.astro';
-import FloatingGallery from '../components/hero/FloatingGallery.astro';
 import Timeline from '../components/timeline/Timeline';
 import CoreCompetencies from '../components/competencies/CoreCompetencies.astro';
 import ProjectsSection from '../components/projects/ProjectsSection.astro';
@@ -38,18 +36,12 @@ const hobbiesData = allHobbies
   <!-- Hero -->
   <HeroSection />
 
-  <!-- Bento Intro -->
-  <BentoIntro />
-
-  <!-- Curated Works Gallery -->
-  <FloatingGallery />
-
   <!-- Experience Preview -->
   <section class="experience-preview">
     <div class="container">
       <div class="experience-preview-header">
         <div>
-          <SectionLabel>The Journey</SectionLabel>
+          <SectionLabel>Career</SectionLabel>
           <h2 class="experience-preview-title font-headline">Experience</h2>
         </div>
         <GradientButton href="/experience" icon="arrow_forward">

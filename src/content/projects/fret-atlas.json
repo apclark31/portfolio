@@ -1,8 +1,8 @@
 {
   "title": "Fret Atlas",
-  "description": "An interactive visualization engine for guitar theory. Bridging complex musical scales with intuitive UI patterns.",
+  "description": "An interactive visualization engine for guitar theory. Maps scales, modes, and chord voicings across the fretboard with an intuitive, explorable UI.",
   "type": "hobby",
   "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=400&fit=crop",
-  "link": "#",
+  "github": "https://github.com/apclark31",
   "order": 2
 }

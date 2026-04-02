@@ -6,6 +6,8 @@ interface Project {
   tags?: string[];
   image?: string;
   link?: string;
+  url?: string;
+  github?: string;
   badge?: string;
   hashtags?: string[];
 }
@@ -25,12 +27,12 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
   <div class="container">
     <!-- Header -->
     <header class="projects-header">
-      <span class="section-label">Selected Works</span>
-      <h1 class="projects-title font-headline">Digital Craft &amp;<br />Functional Beauty</h1>
+      <span class="section-label">Projects</span>
+      <h1 class="projects-title font-headline">Tools &amp; Side Projects</h1>
       <p class="projects-desc font-body">
-        A curated collection of interfaces, experimental tools, and hobbies that
-        explore the intersection of high-performance engineering and
-        conversion-driven design.
+        Applications and tools I've built — from analytics dashboards to
+        browser extensions to music theory visualizers. Published on GitHub
+        with documentation.
       </p>
     </header>
 
@@ -55,10 +57,20 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
           <div class="project-body">
             <h3 class="project-title font-headline">{mainProject.title}</h3>
             <p class="project-desc font-body">{mainProject.description}</p>
-            <a href={mainProject.link || '#'} class="project-link">
-              View Project
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+            <div class="project-links">
+              {mainProject.github && (
+                <a href={mainProject.github} target="_blank" rel="noopener noreferrer" class="project-link">
+                  GitHub
+                  <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+              )}
+              {mainProject.url && (
+                <a href={mainProject.url} target="_blank" rel="noopener noreferrer" class="project-link">
+                  Live Demo
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -78,8 +90,8 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
             )}
           </div>
           <div class="project-secondary-cta">
-            <a href={secondaryProject.link || '#'} class="project-cta-btn signature-gradient">
-              Check it Out
+            <a href={secondaryProject.github || secondaryProject.url || '#'} target="_blank" rel="noopener noreferrer" class="project-cta-btn signature-gradient">
+              View on GitHub
               <span class="material-symbols-outlined">open_in_new</span>
             </a>
           </div>
@@ -99,9 +111,9 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
             <div class="project-hobby-content">
               <h3 class="project-title font-headline">{hobbyProject.title}</h3>
               <p class="project-desc font-body">{hobbyProject.description}</p>
-              <a href={hobbyProject.link || '#'} class="project-link">
-                Explore Hobby
-                <span class="material-symbols-outlined">north_east</span>
+              <a href={hobbyProject.github || hobbyProject.url || '#'} target="_blank" rel="noopener noreferrer" class="project-link">
+                View on GitHub
+                <span class="material-symbols-outlined">open_in_new</span>
               </a>
             </div>
           </div>
@@ -112,9 +124,9 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
       <div class="project-card project-cta">
         <div class="project-cta-glow project-cta-glow-tl"></div>
         <div class="project-cta-glow project-cta-glow-br"></div>
-        <span class="project-cta-label font-label">Open for Collaboration</span>
+        <span class="project-cta-label font-label">Open to Opportunities</span>
         <h2 class="project-cta-title font-headline">
-          Have a project that needs a digital curator?
+          Looking for an eCommerce leader who can build and optimize?
         </h2>
         <a href="/contact" class="project-cta-button">Get in Touch</a>
       </div>
@@ -232,6 +244,11 @@ const hobbyProject = projects.find(p => p.type === 'hobby');
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-8);
     max-width: 36rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-6);
   }
 
   .project-link {
