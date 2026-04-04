@@ -14,7 +14,7 @@ const navLinks = [
 
 <nav class="nav glass" id="main-nav">
   <div class="nav-inner container">
-    <a href="/" class="nav-logo font-headline">Alex Clark</a>
+    <a href="/" class="nav-logo font-headline">Alex Clark <svg class="nav-tree" viewBox="0 0 60 80" fill="currentColor" aria-hidden="true"><path d="M30 0 L24 12 L28 12 L18 28 L24 28 L12 46 L20 46 L6 66 L22 66 L22 80 L38 80 L38 66 L54 66 L40 46 L48 46 L36 28 L42 28 L32 12 L36 12 Z"/></svg></a>
 
     <div class="nav-links" id="nav-links">
       {navLinks.map((link) => (
@@ -55,10 +55,19 @@ const navLinks = [
   }
 
   .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: var(--tracking-tighter);
     color: var(--color-on-surface);
+  }
+
+  .nav-tree {
+    width: 0.65em;
+    height: 0.8em;
+    color: var(--color-primary);
   }
 
   .nav-links {

@@ -1,0 +1,12 @@
+{
+  "title": "Exposed Search",
+  "company": "SOREL",
+  "slug": "exposed-search",
+  "pitch": "Customers who search convert at a significantly higher rate, but the default search was a small icon tucked into the header, easy to overlook entirely. This experience brings search to the forefront with a persistent, animated search bar that lives in the utility navigation on desktop, making it immediately visible and inviting.",
+  "problem": "The default search was hidden behind a small icon in the header. Customers who did find and use search converted at significantly higher rates, but most never engaged with it. The opportunity was sitting there untapped.",
+  "hypothesis": "Making search persistent and prominent in the navigation would increase search engagement and drive higher conversion by connecting more customers with what they're looking for, faster.",
+  "results": "Results data coming soon.",
+  "status": "shipped",
+  "tags": ["Search", "UX", "GSAP", "Desktop + Mobile"],
+  "order": 0
+}

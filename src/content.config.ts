@@ -44,4 +44,22 @@ const hobbies = defineCollection({
   }),
 });
 
-export const collections = { timeline, projects, hobbies };
+const caseStudies = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/case-studies' }),
+  schema: z.object({
+    title: z.string(),
+    company: z.string(),
+    slug: z.string(),
+    pitch: z.string(),
+    problem: z.string().optional(),
+    hypothesis: z.string().optional(),
+    results: z.string().default('Results data coming soon.'),
+    status: z.enum(['winner', 'control', 'variant', 'shipped', 'pending']).default('pending'),
+    beforeImage: z.string().optional(),
+    afterImage: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    order: z.number(),
+  }),
+});
+
+export const collections = { timeline, projects, hobbies, caseStudies };

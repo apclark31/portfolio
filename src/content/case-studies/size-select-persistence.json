@@ -1,0 +1,12 @@
+{
+  "title": "Size Select: Persistence",
+  "company": "SOREL",
+  "slug": "size-select-persistence",
+  "pitch": "A follow-up test after the compact grid was established as the winner. Returning customers already know their size, so asking them to re-select it on every product page is unnecessary friction. This experience remembers the customer's size per gender category and auto-selects it on subsequent visits, with contextual messaging like \"We have your size in stock!\"",
+  "problem": "Returning customers had to re-select their size on every PDP visit, even though they already knew it. This added a repetitive step to every product browse.",
+  "hypothesis": "Persisting size selection per gender category and auto-selecting on return visits would reduce friction and accelerate the path to purchase for returning customers.",
+  "results": "Results data coming soon.",
+  "status": "shipped",
+  "tags": ["PDP", "Personalization", "localStorage", "A/B Test"],
+  "order": 3
+}

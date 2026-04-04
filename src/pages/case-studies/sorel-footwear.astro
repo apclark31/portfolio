@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/navigation/Navigation.astro';
+import Footer from '../../components/shared/Footer.astro';
+import SectionLabel from '../../components/shared/SectionLabel.astro';
+import CaseStudyTabs from '../../components/case-studies/CaseStudyTabs';
+
+const allStudies = await getCollection('caseStudies');
+const sorelStudies = allStudies
+  .filter((s) => s.data.company === 'SOREL')
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((s) => s.data);
+---
+
+<Layout title="SOREL Case Studies | Alex Clark" description="A/B testing and CRO case studies from SOREL Footwear. Search, navigation, PDP gallery, and size select optimization.">
+  <Navigation activePath="/case-studies" />
+
+  <div class="cs-page">
+    <header class="cs-header container">
+      <a href="/experience" class="cs-back-link">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Experience
+      </a>
+      <SectionLabel>Case Studies</SectionLabel>
+      <h1 class="cs-page-title font-headline">SOREL Footwear</h1>
+      <p class="cs-page-role font-body">Site Optimization Manager, 2024 - 2025</p>
+      <p class="cs-page-desc font-body">
+        A collection of A/B tests and site optimization experiences built for
+        SOREL.com. Each test started with a data-backed problem, a clear
+        hypothesis, and measurable outcomes.
+      </p>
+    </header>
+
+    <div class="cs-body container">
+      <CaseStudyTabs studies={sorelStudies} client:load />
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .cs-page {
+    padding-top: calc(var(--nav-height) + var(--space-12));
+    padding-bottom: var(--space-24);
+  }
+
+  .cs-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-16);
+    max-width: 52rem;
+  }
+
+  .cs-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
+    transition: gap 0.2s ease;
+  }
+
+  .cs-back-link:hover {
+    gap: var(--space-3);
+  }
+
+  .cs-back-link .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .cs-page-title {
+    font-size: clamp(2.5rem, 6vw, var(--text-display-lg));
+    font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+    line-height: var(--leading-tight);
+  }
+
+  .cs-page-role {
+    font-size: var(--text-title-md);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .cs-page-desc {
+    font-size: var(--text-body-lg);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+    max-width: 44rem;
+  }
+
+  .cs-body {
+    max-width: var(--content-max-width);
+  }
+</style>

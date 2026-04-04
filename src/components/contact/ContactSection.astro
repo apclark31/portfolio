@@ -1,5 +1,5 @@
 ---
-/* Contact section — matches about_contact_me mockup layout */
+/* Contact section */
 ---
 
 <section class="contact" id="contact">
@@ -9,21 +9,11 @@
       <div class="contact-info">
         <h2 class="contact-title font-headline">Get in Touch</h2>
         <p class="contact-desc font-body">
-          Whether you have an opportunity, a project, or just want to connect
-          and I'm always open to a conversation.
+          Whether you have an opportunity, a project, or just want to connect,
+          I'm always open to a conversation.
         </p>
 
         <div class="contact-details">
-          <div class="contact-detail">
-            <div class="contact-icon-circle">
-              <span class="material-symbols-outlined">alternate_email</span>
-            </div>
-            <div>
-              <p class="contact-detail-label font-label">Email Me</p>
-              <a href="mailto:apclark31@gmail.com" class="contact-detail-value">apclark31@gmail.com</a>
-            </div>
-          </div>
-
           <div class="contact-detail">
             <div class="contact-icon-circle">
               <span class="material-symbols-outlined">public</span>
@@ -41,7 +31,11 @@
 
       <!-- Contact Form -->
       <div class="contact-form-panel">
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b4d98f63-964a-43ca-9f00-da883ed5a560" />
+          <input type="hidden" name="subject" value="New contact from alexpnw.com" />
+          <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" />
+
           <div class="form-field">
             <label for="name" class="form-label font-label">Full Name</label>
             <input type="text" id="name" name="name" required class="form-input" placeholder="John Doe" />
@@ -59,13 +53,13 @@
 
           <button type="submit" class="form-submit signature-gradient" id="contact-submit">
             Send Message
-            <span class="material-symbols-outlined" id="submit-icon">send</span>
+            <span class="material-symbols-outlined">send</span>
           </button>
         </form>
         <div class="form-success" id="form-success">
           <span class="material-symbols-outlined form-success-icon">check_circle</span>
           <p class="form-success-title font-headline">Message sent!</p>
-          <p class="form-success-desc font-body">Your email client should have opened. Thanks for reaching out.</p>
+          <p class="form-success-desc font-body">Thanks for reaching out. I'll get back to you soon.</p>
         </div>
       </div>
     </div>
@@ -153,17 +147,6 @@
     letter-spacing: var(--tracking-widest);
     color: var(--color-primary-container);
     margin-bottom: var(--space-1);
-  }
-
-  .contact-detail-value {
-    font-size: var(--text-title-md);
-    font-weight: 700;
-    color: var(--color-on-primary);
-    transition: color var(--duration-normal) var(--ease-default);
-  }
-
-  .contact-detail-value:hover {
-    color: var(--color-primary-container);
   }
 
   .contact-socials {
@@ -299,18 +282,26 @@
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const success = document.getElementById('form-success')!;
+  const submitBtn = document.getElementById('contact-submit')!;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+    submitBtn.textContent = 'Sending...';
 
-    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-    const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
-    window.location.href = `mailto:apclark31@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
 
-    form.style.display = 'none';
-    success.classList.add('visible');
+      if (response.ok) {
+        form.style.display = 'none';
+        success.classList.add('visible');
+      } else {
+        submitBtn.textContent = 'Something went wrong. Try again.';
+      }
+    } catch {
+      submitBtn.textContent = 'Something went wrong. Try again.';
+    }
   });
 </script>

@@ -1,0 +1,12 @@
+{
+  "title": "Size Select: Dropdown",
+  "company": "SOREL",
+  "slug": "size-select-dropdown",
+  "pitch": "On PDPs with many size options, the default swatch grid sprawls vertically and pushes the add-to-cart button further from the product information. This variant collapses all sizes into a single dropdown button that expands into a scrollable panel on tap. Out-of-stock sizes are clearly marked, selection updates the button label, and the entire interaction stays compact.",
+  "problem": "The default size swatch grid consumed excessive vertical space on PDPs, especially for products with many sizes. This pushed the add-to-cart button further from the product details, creating friction in the purchase flow.",
+  "hypothesis": "Collapsing sizes into a dropdown would reclaim vertical real estate and bring the CTA closer to where the customer is making decisions, improving conversion.",
+  "results": "Results data coming soon.",
+  "status": "variant",
+  "tags": ["PDP", "Size Select", "A/B Test"],
+  "order": 1
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Size Select: Compact Grid",
+  "company": "SOREL",
+  "slug": "size-select-compact-grid",
+  "pitch": "The winning variant in the size select test. Where the dropdown hid sizes entirely, this approach kept them visible but made better use of the space: a clean 5-column CSS Grid that gives every swatch a consistent footprint regardless of how many sizes a product offers. It won because it improved the look and feel without taking anything away from the customer.",
+  "problem": "The default size selector was visually inconsistent and consumed unpredictable amounts of vertical space depending on the number of sizes. The layout shifted between products, creating a jarring experience.",
+  "hypothesis": "A compact, consistent grid layout would scan faster than the original, handle any number of sizes gracefully, and keep the CTA visible without hiding size options behind an interaction.",
+  "results": "Results data coming soon.",
+  "status": "winner",
+  "tags": ["PDP", "Size Select", "A/B Test", "Winner"],
+  "order": 2
+}

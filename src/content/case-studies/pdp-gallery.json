@@ -1,0 +1,12 @@
+{
+  "title": "PDP Gallery Redesign",
+  "company": "SOREL",
+  "slug": "pdp-gallery",
+  "pitch": "The original PDP gallery was small, constrained within a standard column layout that didn't do the product justice. On desktop, the gallery was made full-bleed: a sticky horizontal carousel occupying 70% of the viewport with product details in a 30% info column. On mobile, thumbnails were removed entirely and replaced with minimal dot indicators, dramatically reducing the distance between the last swipe and the CTA.",
+  "problem": "For a brand where texture, material quality, and colorway are key purchase drivers, the imagery wasn't working hard enough. The gallery was constrained within a standard column layout. On mobile, a multi-row thumbnail strip consumed vertical space before the customer could reach the add-to-cart button.",
+  "hypothesis": "Giving the product more room to breathe and letting the imagery resonate with the customer would translate directly into conversion rate uplifts. On mobile, removing thumbnails and reducing distance to the CTA would improve purchase completion.",
+  "results": "Results data coming soon.",
+  "status": "shipped",
+  "tags": ["PDP", "Gallery", "Desktop + Mobile", "Conversion"],
+  "order": 5
+}

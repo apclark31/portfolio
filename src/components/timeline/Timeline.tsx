@@ -225,22 +225,13 @@ export default function Timeline({ entries, preview = false }: Props) {
               ))}
             </div>
             {entry.caseStudy && (
-              <button
+              <a
                 className="tl-case-study-link"
-                onClick={() =>
-                  openCaseStudy({
-                    slug: entry.company.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-                    company: entry.company,
-                    role: entry.role,
-                    dateRange: entry.dateRange,
-                    image: entry.image,
-                    description: entry.description,
-                  })
-                }
+                href={`/case-studies/${entry.company.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
               >
-                View Case Study{' '}
+                View Case Studies{' '}
                 <span className="material-symbols-outlined">arrow_outward</span>
-              </button>
+              </a>
             )}
           </div>
 
