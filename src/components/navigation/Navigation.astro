@@ -16,7 +16,7 @@ const navLinks = [
   <div class="nav-inner container">
     <a href="/" class="nav-logo font-headline">Alex Clark</a>
 
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       {navLinks.map((link) => (
         <a
           href={link.href}
@@ -25,9 +25,16 @@ const navLinks = [
           {link.label}
         </a>
       ))}
+      <a href="/#contact" class="nav-cta nav-cta-mobile">Contact</a>
     </div>
 
-    <a href="/#contact" class={`nav-cta ${activePath === '/contact' ? 'nav-cta--active' : ''}`}>Contact</a>
+    <a href="/#contact" class={`nav-cta nav-cta-desktop ${activePath === '/contact' ? 'nav-cta--active' : ''}`}>Contact</a>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav-hamburger-line"></span>
+      <span class="nav-hamburger-line"></span>
+      <span class="nav-hamburger-line"></span>
+    </button>
   </div>
 </nav>
 
@@ -55,9 +62,7 @@ const navLinks = [
   }
 
   .nav-links {
-    display: flex;
-    gap: var(--space-8);
-    align-items: center;
+    display: none;
     font-family: var(--font-headline);
     letter-spacing: var(--tracking-tight);
   }
@@ -88,6 +93,8 @@ const navLinks = [
     font-size: var(--text-body-sm);
     transition: opacity var(--duration-normal) var(--ease-default),
                 transform var(--duration-fast) var(--ease-default);
+    text-decoration: none;
+    text-align: center;
   }
 
   .nav-cta:hover {
@@ -97,4 +104,114 @@ const navLinks = [
   .nav-cta:active {
     transform: scale(0.95);
   }
+
+  /* Desktop CTA hidden on mobile, mobile CTA hidden on desktop */
+  .nav-cta-desktop {
+    display: none;
+  }
+
+  .nav-cta-mobile {
+    display: none;
+  }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: var(--space-2);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-on-surface);
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu open */
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: var(--space-6) var(--space-8) var(--space-8);
+    gap: var(--space-4);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-links.open .nav-cta-mobile {
+    display: block;
+    margin-top: var(--space-2);
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .nav-hamburger {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-8);
+      align-items: center;
+      position: static;
+      background: none;
+      backdrop-filter: none;
+      padding: 0;
+      box-shadow: none;
+      flex-direction: row;
+    }
+
+    .nav-cta-desktop {
+      display: inline-block;
+    }
+
+    .nav-cta-mobile {
+      display: none !important;
+    }
+  }
 </style>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger')!;
+  const links = document.getElementById('nav-links')!;
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    links.classList.toggle('open');
+  });
+
+  // Close menu when a link is clicked
+  links.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      hamburger.setAttribute('aria-expanded', 'false');
+      links.classList.remove('open');
+    });
+  });
+</script>

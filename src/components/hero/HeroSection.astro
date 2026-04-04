@@ -66,13 +66,27 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
   .hero-inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-12);
+    gap: var(--space-8);
     align-items: center;
+  }
+
+  /* Mobile: portrait first, then content */
+  .hero-portrait-wrap {
+    order: -1;
+    max-width: 280px;
+    margin-inline: auto;
   }
 
   @media (min-width: 1024px) {
     .hero-inner {
       grid-template-columns: 7fr 5fr;
+      gap: var(--space-12);
+    }
+
+    .hero-portrait-wrap {
+      order: 0;
+      max-width: none;
+      margin-inline: 0;
     }
   }
 
@@ -80,6 +94,15 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+    text-align: center;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content {
+      text-align: left;
+      align-items: flex-start;
+    }
   }
 
   .hero-label {
@@ -118,6 +141,13 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     flex-wrap: wrap;
     gap: var(--space-2);
     padding-top: var(--space-2);
+    justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-disciplines {
+      justify-content: flex-start;
+    }
   }
 
   .hero-discipline {
@@ -136,12 +166,15 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-3);
     padding-top: var(--space-4);
+    justify-content: center;
   }
 
-  .hero-portrait-wrap {
-    position: relative;
+  @media (min-width: 1024px) {
+    .hero-actions {
+      justify-content: flex-start;
+    }
   }
 
   .hero-portrait {
