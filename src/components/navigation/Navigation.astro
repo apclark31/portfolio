@@ -6,9 +6,9 @@ interface Props {
 const { activePath = '/' } = Astro.props;
 
 const navLinks = [
+  { href: '/#about', label: 'About' },
   { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
-  { href: '/#about', label: 'About' },
 ];
 ---
 
@@ -27,20 +27,7 @@ const navLinks = [
       ))}
     </div>
 
-    <a href="/contact" class={`nav-cta ${activePath === '/contact' ? 'nav-cta--active' : ''}`}>Contact</a>
-
-    <!-- Mobile menu button -->
-    <button class="nav-mobile-toggle" aria-label="Toggle menu" id="mobile-menu-btn">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-
-  <!-- Mobile menu -->
-  <div class="nav-mobile-menu" id="mobile-menu">
-    {navLinks.map((link) => (
-      <a href={link.href} class="nav-mobile-link">{link.label}</a>
-    ))}
-    <a href="/contact" class="nav-mobile-link nav-cta" style="text-align: center;">Contact</a>
+    <a href="/#contact" class={`nav-cta ${activePath === '/contact' ? 'nav-cta--active' : ''}`}>Contact</a>
   </div>
 </nav>
 
@@ -68,21 +55,11 @@ const navLinks = [
   }
 
   .nav-links {
-    display: none;
+    display: flex;
     gap: var(--space-8);
     align-items: center;
     font-family: var(--font-headline);
     letter-spacing: var(--tracking-tight);
-  }
-
-  @media (min-width: 768px) {
-    .nav-links {
-      display: flex;
-    }
-
-    .nav-mobile-toggle {
-      display: none;
-    }
   }
 
   .nav-link {
@@ -120,64 +97,4 @@ const navLinks = [
   .nav-cta:active {
     transform: scale(0.95);
   }
-
-  .nav-mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-on-surface);
-  }
-
-  @media (min-width: 768px) {
-    .nav-cta {
-      display: inline-block;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .nav-cta {
-      display: none;
-    }
-  }
-
-  .nav-mobile-menu {
-    display: none;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4) var(--space-8) var(--space-6);
-  }
-
-  .nav-mobile-menu.open {
-    display: flex;
-  }
-
-  .nav-mobile-link {
-    font-family: var(--font-headline);
-    font-size: var(--text-title-md);
-    color: var(--color-on-surface-variant);
-    padding: var(--space-3) 0;
-    transition: color var(--duration-normal) var(--ease-default);
-  }
-
-  .nav-mobile-link:hover {
-    color: var(--color-primary);
-  }
 </style>
-
-<script>
-  // Mobile menu toggle
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('open');
-    const icon = btn.querySelector('.material-symbols-outlined');
-    if (icon) {
-      icon.textContent = menu?.classList.contains('open') ? 'close' : 'menu';
-    }
-  });
-
-  // Close mobile menu on link click
-  menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => menu?.classList.remove('open'));
-  });
-</script>

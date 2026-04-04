@@ -1,12 +1,12 @@
 {
   "dateRange": "2021 — 2024",
-  "role": "eCommerce & Optimization Manager, Growth",
+  "role": "Ecommerce Manager, Growth and Optimization",
   "company": "Fender Musical Instruments",
-  "description": "Managed eCommerce optimization, growth strategies, and conversion rate initiatives across the global digital storefront.",
-  "tags": ["Growth", "eCommerce", "Optimization"],
+  "description": "Collaborated with Digital Marketing, Merchandising, Product, and Engineering to drive top-line revenue performance, product releases, and marketing campaigns. Led the optimization and testing roadmap to improve site KPIs, following through on new releases to measure performance and provide feedback to Product and Engineering. Developed tracking plans to better analyze customer behavior and improve UX, providing deeper insight to cross-functional teams and leadership. Managed Fender's first major holiday campaigns from assortment to merchandising, growing DTC 42% year over year.",
+  "tags": ["Growth", "DTC", "Testing", "Analytics"],
   "side": "right",
   "isCurrent": false,
-  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=450&fit=crop",
+  "image": "/images/fender-original.png",
   "caseStudy": false,
   "order": 2
 }

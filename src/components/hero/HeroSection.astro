@@ -6,21 +6,25 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
 <section class="hero">
   <div class="hero-inner container">
     <div class="hero-content">
-      <p class="hero-label font-label">eCommerce Leader &amp; CRO Specialist</p>
+      <p class="hero-label font-label">eCommerce Leader &amp; CRO / Analytics Expert</p>
 
       <h1 class="hero-title font-headline">
         Alex Clark
+        <svg class="hero-pnw" viewBox="0 0 60 80" fill="currentColor" aria-hidden="true">
+          <path d="M30 0 L24 12 L28 12 L18 28 L24 28 L12 46 L20 46 L6 66 L22 66 L22 80 L38 80 L38 66 L54 66 L40 46 L48 46 L36 28 L42 28 L32 12 L36 12 Z"/>
+        </svg>
       </h1>
 
       <p class="hero-description font-body">
-        12+ years driving growth across eCommerce, conversion optimization,
-        front-end engineering, operations, analytics, and customer experience.
-        From building the tech to leading the strategy &mdash; I've done both.
+        Hi, I'm Alex. Over the past 12 years, I've worked with global brands
+        to drive eCommerce growth through conversion optimization, analytics,
+        and digital strategy. From hands-on implementation to leading the
+        strategy, I've driven growth at every stage of the eCommerce journey.
       </p>
 
       <div class="hero-disciplines">
         <span class="hero-discipline">CRO &amp; A/B Testing</span>
-        <span class="hero-discipline">Front-End Engineering</span>
+        <span class="hero-discipline">Content &amp; On-Site Marketing</span>
         <span class="hero-discipline">eCommerce Operations</span>
         <span class="hero-discipline">Analytics &amp; Data</span>
         <span class="hero-discipline">UI/UX</span>
@@ -40,7 +44,7 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     <div class="hero-portrait-wrap">
       <div class="hero-portrait">
         <img
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&crop=face"
+          src="/images/alex-headshot.jpg"
           alt="Alex Clark"
           class="hero-portrait-img"
           loading="eager"
@@ -94,6 +98,14 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     color: var(--color-on-surface);
   }
 
+  .hero-pnw {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.65em;
+    color: var(--color-primary);
+    vertical-align: baseline;
+  }
+
   .hero-description {
     font-size: var(--text-body-lg);
     color: var(--color-on-surface-variant);
@@ -144,14 +156,5 @@ import SecondaryButton from '../shared/SecondaryButton.astro';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%);
-    transform: scale(1.05);
-    transition: filter var(--duration-slower) var(--ease-default),
-                transform var(--duration-slower) var(--ease-default);
-  }
-
-  .hero-portrait:hover .hero-portrait-img {
-    filter: grayscale(0%);
-    transform: scale(1);
   }
 </style>

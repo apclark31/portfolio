@@ -10,7 +10,7 @@
         <h2 class="contact-title font-headline">Get in Touch</h2>
         <p class="contact-desc font-body">
           Whether you have an opportunity, a project, or just want to connect
-          &mdash; I'm always open to a conversation.
+          and I'm always open to a conversation.
         </p>
 
         <div class="contact-details">
@@ -20,7 +20,7 @@
             </div>
             <div>
               <p class="contact-detail-label font-label">Email Me</p>
-              <a href="mailto:alex@example.com" class="contact-detail-value">alex@example.com</a>
+              <a href="mailto:apclark31@gmail.com" class="contact-detail-value">apclark31@gmail.com</a>
             </div>
           </div>
 
@@ -41,7 +41,7 @@
 
       <!-- Contact Form -->
       <div class="contact-form-panel">
-        <form class="contact-form" action="#" method="POST">
+        <form class="contact-form" id="contact-form">
           <div class="form-field">
             <label for="name" class="form-label font-label">Full Name</label>
             <input type="text" id="name" name="name" required class="form-input" placeholder="John Doe" />
@@ -57,11 +57,16 @@
             <textarea id="message" name="message" rows="4" required class="form-input form-textarea" placeholder="How can we help each other?"></textarea>
           </div>
 
-          <button type="submit" class="form-submit signature-gradient">
+          <button type="submit" class="form-submit signature-gradient" id="contact-submit">
             Send Message
-            <span class="material-symbols-outlined">send</span>
+            <span class="material-symbols-outlined" id="submit-icon">send</span>
           </button>
         </form>
+        <div class="form-success" id="form-success">
+          <span class="material-symbols-outlined form-success-icon">check_circle</span>
+          <p class="form-success-title font-headline">Message sent!</p>
+          <p class="form-success-desc font-body">Your email client should have opened. Thanks for reaching out.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -69,7 +74,7 @@
 
 <style>
   .contact {
-    padding-block: var(--space-24);
+    padding-block: var(--space-12);
   }
 
   .contact-grid {
@@ -258,4 +263,54 @@
   .form-submit .material-symbols-outlined {
     font-size: 1.25rem;
   }
+
+  /* Success state */
+  .form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-4);
+    padding: var(--space-12);
+  }
+
+  .form-success.visible {
+    display: flex;
+  }
+
+  .form-success-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+  }
+
+  .form-success-title {
+    font-size: var(--text-headline-md);
+    font-weight: 700;
+    color: var(--color-on-surface);
+  }
+
+  .form-success-desc {
+    font-size: var(--text-body-md);
+    color: var(--color-on-surface-variant);
+  }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success')!;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+    window.location.href = `mailto:apclark31@gmail.com?subject=${subject}&body=${body}`;
+
+    form.style.display = 'none';
+    success.classList.add('visible');
+  });
+</script>

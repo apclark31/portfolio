@@ -9,22 +9,13 @@
       <div class="about-hero-text">
         <span class="section-label">About</span>
         <h1 class="about-title font-headline">
-          eCommerce from <span class="about-title-accent">every angle.</span>
+          Making digital commerce <span class="about-title-accent">work better.</span>
         </h1>
         <p class="about-desc font-body">
           I've built eCommerce operations from the ground up, optimized
-          conversion funnels at scale, written the front-end code, managed
-          the analytics, and led the teams. The common thread is making
-          digital commerce work better &mdash; measurably.
+          conversion funnels at scale, managed the analytics, and led the
+          teams. Every initiative ties back to something measurable.
         </p>
-      </div>
-
-      <div class="about-hero-portrait">
-        <img
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
-          alt="Alex Clark"
-          loading="lazy"
-        />
       </div>
     </div>
 
@@ -36,67 +27,60 @@
           <span class="material-symbols-outlined about-card-icon">architecture</span>
           <h3 class="about-card-title font-headline">How I Work</h3>
           <p class="about-card-desc font-body">
-            I start with the data, scope the opportunity, build a hypothesis,
-            and ship a test. Rinse and repeat. Every initiative ties back to
-            a metric that matters &mdash; revenue, conversion rate, or efficiency.
+            I start with the data, scope the opportunity, and build a hypothesis.
+            Sometimes that means shipping a test. Sometimes the data is clear
+            enough to just execute. Every initiative ties back to a metric
+            that matters: revenue, conversion rate, or efficiency.
           </p>
         </div>
-        <div class="workflow-tags">
-          <span class="workflow-tag">Data-Driven</span>
-          <span class="workflow-tag">Ship Fast</span>
-          <span class="workflow-tag">Iterate</span>
-        </div>
-      </div>
-
-      <!-- Side Projects (spans 3) -->
-      <div class="about-card about-card-hobby">
-        <div class="about-card-hobby-inner">
-          <span class="material-symbols-outlined about-hobby-icon">code</span>
-          <h3 class="about-card-title font-headline about-hobby-title">Builder at Heart</h3>
-          <p class="about-card-desc about-hobby-desc font-body">
-            Outside of work, I build tools and apps &mdash; a guitar theory
-            visualizer, a CRO toolkit, and more. Same discipline, different domain.
-            It keeps the engineering skills sharp and the ideas fresh.
-          </p>
-          <a href="/projects" class="about-hobby-link">
-            See what I've built <span class="material-symbols-outlined">arrow_forward</span>
+        <div class="workflow-footer">
+          <div class="workflow-tags">
+            <span class="workflow-tag">Data-Driven</span>
+            <span class="workflow-tag">Ship Fast</span>
+            <span class="workflow-tag">Iterate</span>
+          </div>
+          <a href="/experience" class="workflow-link">
+            See my experience <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
-        <div class="about-hobby-circle"></div>
       </div>
 
-      <!-- Tech Stack (spans 2) -->
-      <div class="about-card about-card-stack">
-        <h4 class="about-card-title font-headline">Tools &amp; Platforms</h4>
-        <ul class="stack-list">
-          <li class="stack-item">
-            <span class="stack-dot"></span>
-            <span>React, TypeScript, Astro</span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-dot"></span>
-            <span>SFCC, Shopify, Magento</span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-dot"></span>
-            <span>GA4, Adobe Analytics, Heap</span>
-          </li>
-          <li class="stack-item">
-            <span class="stack-dot"></span>
-            <span>Optimizely, VWO, AB Tasty</span>
-          </li>
-        </ul>
+      <!-- Results card (spans 3) -->
+      <div class="about-card about-card-results">
+        <div class="about-card-results-inner">
+          <span class="material-symbols-outlined about-results-icon">trending_up</span>
+          <h3 class="about-card-title font-headline about-results-title">Proven Results</h3>
+          <div class="results-stats">
+            <div class="results-stat">
+              <span class="results-stat-number font-headline">Millions</span>
+              <span class="results-stat-label">In Incremental Growth</span>
+            </div>
+            <div class="results-stat">
+              <span class="results-stat-number font-headline">YoY</span>
+              <span class="results-stat-label">DTC Sales Increases</span>
+            </div>
+            <div class="results-stat">
+              <span class="results-stat-number font-headline">Full-Stack</span>
+              <span class="results-stat-label">Analytics Recovery &amp; Infrastructure</span>
+            </div>
+          </div>
+          <a href="/projects" class="about-results-link">
+            See the work <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+        <div class="about-results-circle"></div>
       </div>
 
-      <!-- Approach (spans 4) -->
+      <!-- Approach quote card (spans 6) -->
       <div class="about-card about-card-quote">
         <p class="about-quote font-headline">
-          "The best optimization isn't the one that wins the A/B test &mdash;
-          it's the one that changes how the team thinks about the customer."
+          "Data isn't just numbers and behavioral analytics. It's empathy
+          at scale. When you lead with understanding what your users are
+          going through, the right optimization becomes obvious."
         </p>
         <div class="about-quote-attribution">
           <div class="about-quote-line"></div>
-          <span class="about-quote-label font-label">Approach</span>
+          <span class="about-quote-label font-label">Philosophy</span>
         </div>
       </div>
     </div>
@@ -105,7 +89,7 @@
 
 <style>
   .about {
-    padding-block: var(--space-24);
+    padding-block: var(--space-16);
     background-color: var(--color-surface);
   }
 
@@ -113,21 +97,15 @@
   .about-hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-12);
-    margin-bottom: var(--space-32);
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
     align-items: center;
-  }
-
-  @media (min-width: 1024px) {
-    .about-hero {
-      grid-template-columns: 7fr 5fr;
-    }
   }
 
   .about-hero-text {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
   .about-title {
@@ -153,32 +131,7 @@
     max-width: 40rem;
   }
 
-  .about-hero-portrait {
-    aspect-ratio: 1;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
-    transform: rotate(3deg);
-    transition: transform var(--duration-slow) var(--ease-default);
-  }
-
-  .about-hero-portrait:hover {
-    transform: rotate(0deg);
-  }
-
-  .about-hero-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter var(--duration-slower) var(--ease-default);
-  }
-
-  .about-hero-portrait:hover img {
-    filter: grayscale(0%);
-  }
-
-  /* Bento grid — 6 columns on desktop */
+  /* Bento grid */
   .about-bento {
     display: grid;
     grid-template-columns: 1fr;
@@ -229,11 +182,17 @@
     }
   }
 
+  .workflow-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
   .workflow-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
-    margin-top: var(--space-8);
   }
 
   .workflow-tag {
@@ -247,8 +206,27 @@
     letter-spacing: var(--tracking-tight);
   }
 
-  /* Side projects card (primary bg) */
-  .about-card-hobby {
+  .workflow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: gap var(--duration-normal) var(--ease-default);
+  }
+
+  .workflow-link:hover {
+    gap: var(--space-3);
+  }
+
+  .workflow-link .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  /* Results card (primary bg) */
+  .about-card-results {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
     position: relative;
@@ -256,51 +234,71 @@
   }
 
   @media (min-width: 768px) {
-    .about-card-hobby {
+    .about-card-results {
       grid-column: span 3;
     }
   }
 
-  .about-card-hobby-inner {
+  .about-card-results-inner {
     position: relative;
     z-index: 1;
   }
 
-  .about-hobby-icon {
+  .about-results-icon {
     font-size: 2.5rem;
-    color: var(--color-primary-container);
+    color: #fff;
     display: block;
     margin-bottom: var(--space-6);
   }
 
-  .about-hobby-title {
+  .about-results-title {
     color: var(--color-on-primary);
   }
 
-  .about-hobby-desc {
-    color: rgba(192, 255, 243, 0.8);
+  .results-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
     margin-bottom: var(--space-6);
   }
 
-  .about-hobby-link {
+  .results-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .results-stat-number {
+    font-size: var(--text-headline-lg);
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .results-stat-label {
+    font-size: var(--text-body-sm);
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+  }
+
+  .about-results-link {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
     font-weight: 700;
-    color: var(--color-primary-container);
-    transition: text-decoration var(--duration-normal) var(--ease-default);
+    color: #fff;
+    text-decoration: none;
+    transition: gap var(--duration-normal) var(--ease-default);
   }
 
-  .about-hobby-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .about-results-link:hover {
+    gap: var(--space-3);
   }
 
-  .about-hobby-link .material-symbols-outlined {
+  .about-results-link .material-symbols-outlined {
     font-size: 1.25rem;
   }
 
-  .about-hobby-circle {
+  .about-results-circle {
     position: absolute;
     top: -5rem;
     right: -5rem;
@@ -312,47 +310,8 @@
     transition: transform var(--duration-slower) var(--ease-default);
   }
 
-  .about-card-hobby:hover .about-hobby-circle {
+  .about-card-results:hover .about-results-circle {
     transform: scale(1.1);
-  }
-
-  /* Tech Stack card */
-  .about-card-stack {
-    background-color: var(--color-surface-container-highest);
-  }
-
-  @media (min-width: 768px) {
-    .about-card-stack {
-      grid-column: span 2;
-    }
-  }
-
-  .about-card-stack .about-card-title {
-    font-size: var(--text-title-lg);
-  }
-
-  .stack-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .stack-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: var(--text-body-md);
-    font-weight: 500;
-    color: var(--color-on-surface);
-  }
-
-  .stack-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: var(--radius-full);
-    background-color: var(--color-primary);
-    flex-shrink: 0;
   }
 
   /* Approach quote card */
@@ -365,7 +324,7 @@
 
   @media (min-width: 768px) {
     .about-card-quote {
-      grid-column: span 4;
+      grid-column: span 6;
     }
   }
 

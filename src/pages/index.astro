@@ -1,33 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/navigation/Navigation.astro';
 import HeroSection from '../components/hero/HeroSection.astro';
-import Timeline from '../components/timeline/Timeline';
-import CoreCompetencies from '../components/competencies/CoreCompetencies.astro';
-import ProjectsSection from '../components/projects/ProjectsSection.astro';
-import InterestGrid from '../components/hobbies/InterestGrid.astro';
 import AboutSection from '../components/about/AboutSection.astro';
 import ContactSection from '../components/contact/ContactSection.astro';
 import Footer from '../components/shared/Footer.astro';
-import GradientButton from '../components/shared/GradientButton.astro';
-import SectionLabel from '../components/shared/SectionLabel.astro';
-
-const allTimeline = await getCollection('timeline');
-const previewEntries = allTimeline
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 2)
-  .map((e) => e.data);
-
-const allProjects = await getCollection('projects');
-const projectsData = allProjects
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((e) => e.data);
-
-const allHobbies = await getCollection('hobbies');
-const hobbiesData = allHobbies
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((e) => e.data);
 ---
 
 <Layout>
@@ -35,31 +12,6 @@ const hobbiesData = allHobbies
 
   <!-- Hero -->
   <HeroSection />
-
-  <!-- Experience Preview -->
-  <section class="experience-preview">
-    <div class="container">
-      <div class="experience-preview-header">
-        <div>
-          <SectionLabel>Career</SectionLabel>
-          <h2 class="experience-preview-title font-headline">Experience</h2>
-        </div>
-        <GradientButton href="/experience" icon="arrow_forward">
-          View Full Timeline
-        </GradientButton>
-      </div>
-      <Timeline entries={previewEntries} preview client:visible />
-    </div>
-  </section>
-
-  <!-- Core Competencies -->
-  <CoreCompetencies />
-
-  <!-- Projects -->
-  <ProjectsSection projects={projectsData} />
-
-  <!-- Personal Interests -->
-  <InterestGrid interests={hobbiesData} />
 
   <!-- About -->
   <AboutSection />
@@ -70,33 +22,3 @@ const hobbiesData = allHobbies
   <!-- Footer -->
   <Footer />
 </Layout>
-
-<style>
-  .experience-preview {
-    padding-top: var(--space-24);
-    padding-bottom: var(--space-12);
-  }
-
-  .experience-preview-header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    margin-bottom: var(--space-16);
-  }
-
-  @media (min-width: 768px) {
-    .experience-preview-header {
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
-  }
-
-  .experience-preview-title {
-    font-size: clamp(2.5rem, 6vw, var(--text-display-lg));
-    font-weight: 800;
-    letter-spacing: var(--tracking-tighter);
-    color: var(--color-on-surface);
-    line-height: var(--leading-tight);
-  }
-</style>

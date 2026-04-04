@@ -1,12 +1,12 @@
 {
-  "dateRange": "2024",
-  "role": "Manager, Site Optimization",
-  "company": "SOREL",
-  "description": "Led site optimization and A/B testing initiatives, driving measurable conversion improvements across the DTC experience.",
-  "tags": ["A/B Testing", "CRO", "Analytics"],
+  "dateRange": "2024 — 2025",
+  "role": "Site Optimization Manager",
+  "company": "SOREL Footwear",
+  "description": "Led site marketing optimization (CRO, merchandising, and content strategy) for North America, making SOREL.com the premium expression of the brand. Took content by the reins and pushed the CMS to its limits, giving the site its own unique footprint within the Columbia Sportswear organization. Implemented full-funnel, data-driven creative strategies driving 2x engagement, +100bps conversion rate, and +500bps revenue contribution from site content. Built and executed SOREL's first A/B testing roadmap rooted in data-driven insights, delivering $2M+ in incremental revenue. Led seasonal go-live campaigns and merchandising strategy, delivering reports with actionable recommendations across teams.",
+  "tags": ["CRO", "A/B Testing", "Content Strategy", "Merchandising"],
   "side": "left",
   "isCurrent": false,
-  "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=450&fit=crop",
+  "image": "/images/sorel.png",
   "caseStudy": true,
   "order": 1
 }

@@ -62,9 +62,11 @@
   /* Left side: image (col 1) | marker gap (col 2) | content (col 3) */
   .tl-entry--left .tl-entry-content {
     grid-column: 3;
+    grid-row: 1;
   }
   .tl-entry--left .tl-entry-image-wrap {
     grid-column: 1;
+    grid-row: 1;
   }
 }
 

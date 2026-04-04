@@ -1,12 +1,12 @@
 {
-  "dateRange": "2013 — 2016",
+  "dateRange": "2013 — 2015",
   "role": "IT Specialist",
   "company": "Made In Oregon",
-  "description": "Administered network and hardware infrastructure for multiple retail locations, corporate office, and web department.",
-  "tags": ["IT Infrastructure", "Retail Tech"],
+  "description": "Where it all started. Cut my teeth across application support, web development, systems administration, and network integration, getting a taste of every type of technology. Supported multiple retail locations, corporate office, and web operations. The breadth of exposure built a foundation that led directly into the eCommerce world at Dr. Martens.",
+  "tags": ["Application Support", "Web Dev", "Systems", "Networking"],
   "side": "right",
   "isCurrent": false,
-  "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop",
+  "image": "/images/made-in-oregon.png",
   "caseStudy": false,
   "order": 4
 }

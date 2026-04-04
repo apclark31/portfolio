@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/navigation/Navigation.astro';
-import ProjectsSection from '../components/projects/ProjectsSection.astro';
 import Footer from '../components/shared/Footer.astro';
+import SectionLabel from '../components/shared/SectionLabel.astro';
 
 const allProjects = await getCollection('projects');
 const projects = allProjects
@@ -11,18 +11,312 @@ const projects = allProjects
   .map((e) => e.data);
 ---
 
-<Layout title="Projects — Alex Clark" description="A curated collection of interfaces, experimental tools, and passion projects.">
+<Layout title="Projects | Alex Clark" description="Tools, dashboards, and side projects built by Alex Clark.">
   <Navigation activePath="/projects" />
 
   <div class="projects-page">
-    <ProjectsSection projects={projects} />
+    <header class="projects-header container">
+      <SectionLabel>Projects</SectionLabel>
+      <h1 class="projects-title font-headline">Tools &amp; Side Projects</h1>
+      <p class="projects-desc font-body">
+        Applications and tools I've built, from analytics platforms to
+        local development tools to music theory visualizers.
+      </p>
+    </header>
+
+    <div class="projects-grid container">
+      {projects.map((project) => (
+        <article class="project-card">
+          {project.image && (
+            <button class="project-card-image" data-lightbox-src={project.image} data-lightbox-alt={`${project.title} interface`}>
+              <img src={project.image} alt={`${project.title} interface`} loading="lazy" />
+              <span class="project-card-zoom material-symbols-outlined">zoom_in</span>
+            </button>
+          )}
+          <div class="project-card-body">
+            {project.badge && <span class="project-card-badge">{project.badge}</span>}
+            <h2 class="project-card-title font-headline">{project.title}</h2>
+            <p class="project-card-desc font-body">{project.description}</p>
+            {project.tags && project.tags.length > 0 && (
+              <div class="project-card-tags">
+                {project.tags.map((tag) => (<span class="project-card-tag">{tag}</span>))}
+              </div>
+            )}
+            {project.hashtags && project.hashtags.length > 0 && (
+              <div class="project-card-tags">
+                {project.hashtags.map((tag) => (<span class="project-card-tag">{tag}</span>))}
+              </div>
+            )}
+            <div class="project-card-links">
+              {project.url && (<a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">Live Site <span class="material-symbols-outlined">arrow_forward</span></a>)}
+              {project.github && (<a href={project.github} target="_blank" rel="noopener noreferrer" class="project-link">GitHub <span class="material-symbols-outlined">open_in_new</span></a>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close image">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
   </div>
 
   <Footer />
 </Layout>
 
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+  document.querySelectorAll('[data-lightbox-src]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const src = btn.getAttribute('data-lightbox-src')!;
+      const alt = btn.getAttribute('data-lightbox-alt') || '';
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('lightbox-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || (e.target as Element).closest('.lightbox-close')) {
+      lightbox.classList.remove('lightbox-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('lightbox-open')) {
+      lightbox.classList.remove('lightbox-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
+
 <style>
   .projects-page {
     padding-top: calc(var(--nav-height) + var(--space-12));
+    padding-bottom: var(--space-24);
+  }
+
+  .projects-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-16);
+    max-width: 48rem;
+  }
+
+  .projects-title {
+    font-size: clamp(2.5rem, 6vw, var(--text-display-lg));
+    font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+    line-height: var(--leading-tight);
+  }
+
+  .projects-desc {
+    font-size: var(--text-title-md);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+    max-width: 40rem;
+  }
+
+  /* Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Card */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface-container-low);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    transition: transform var(--duration-normal) var(--ease-default),
+                box-shadow var(--duration-normal) var(--ease-default);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .project-card-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--color-surface-container);
+  }
+
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-slower) var(--ease-default);
+  }
+
+  .project-card:hover .project-card-image img {
+    transform: scale(1.03);
+  }
+
+  .project-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    flex: 1;
+  }
+
+  .project-card-badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: var(--space-1) var(--space-3);
+    background-color: rgba(0, 103, 93, 0.1);
+    border-radius: var(--radius-full);
+    font-size: var(--text-label-md);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  .project-card-title {
+    font-size: var(--text-headline-md);
+    font-weight: 800;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-on-surface);
+  }
+
+  .project-card-desc {
+    font-size: var(--text-body-md);
+    color: var(--color-on-surface-variant);
+    line-height: var(--leading-relaxed);
+  }
+
+  .project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .project-card-tag {
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-surface-container);
+    border-radius: var(--radius-full);
+    font-size: var(--text-label-sm);
+    font-weight: 600;
+    color: var(--color-on-surface-variant);
+  }
+
+  .project-card-links {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: auto;
+    padding-top: var(--space-4);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--text-body-md);
+    text-decoration: none;
+  }
+
+  .project-link .material-symbols-outlined {
+    font-size: 1rem;
+    transition: transform var(--duration-normal) var(--ease-default);
+  }
+
+  .project-link:hover .material-symbols-outlined {
+    transform: translateX(4px);
+  }
+
+  /* Zoom hint on image */
+  .project-card-image {
+    position: relative;
+    cursor: zoom-in;
+    border: none;
+    padding: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .project-card-zoom {
+    position: absolute;
+    bottom: var(--space-3);
+    right: var(--space-3);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-full);
+    padding: var(--space-2);
+    font-size: 1.25rem;
+    color: var(--color-on-surface);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-default);
+  }
+
+  .project-card:hover .project-card-zoom {
+    opacity: 1;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.lightbox-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--space-3);
+    cursor: pointer;
+    color: white;
+    transition: background var(--duration-normal) var(--ease-default);
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--radius-xl);
+    object-fit: contain;
   }
 </style>

@@ -115,7 +115,7 @@ export default function CaseStudyOverlay() {
           <div className="cs-body font-body">
             <p>{caseStudy.description}</p>
             <p className="cs-placeholder">
-              Full case study content will be added here — A/B test results,
+              Full case study content will be added here: A/B test results,
               metrics, screenshots, and detailed analysis.
             </p>
           </div>

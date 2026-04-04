@@ -1,12 +1,12 @@
 {
-  "dateRange": "2016 — 2021",
-  "role": "Sr. Manager, eCommerce Operations (Americas)",
-  "company": "Dr. Martens — Airwair International",
-  "description": "Progressive career from Retail IT Analyst to Senior Manager. Built and scaled the Americas eCommerce operation across multiple roles and promotions.",
-  "tags": ["eCommerce Ops", "Team Leadership", "DTC"],
+  "dateRange": "2015 — 2021",
+  "role": "Senior Retail IT Engineer → DTC Technical Manager → Senior Ecommerce Manager",
+  "company": "Dr. Martens",
+  "description": "Progressive six-year career spanning three promotions. Started as Senior Retail IT Engineer supporting hardware, software, and network infrastructure across 25+ US retail stores while driving digital innovations and data-driven solutions. Moved into DTC Technical Manager, translating stakeholder needs into development requirements and running A/B tests using page depth, heatmaps, and content analysis. Ultimately led the Americas eCommerce operation as Senior Ecommerce Manager, overseeing analytics, site operations, and the digital roadmap while managing a team of three direct reports. Led end-to-end site optimization activities including A/B testing and personalization, and worked cross-functionally with Operations, Digital Marketing, and Finance to prioritize enhancements and drive sell-through.",
+  "tags": ["eCommerce Ops", "Team Leadership", "A/B Testing", "DTC"],
   "side": "left",
   "isCurrent": false,
-  "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=450&fit=crop",
+  "image": "/images/drmartens.png",
   "caseStudy": false,
   "order": 3
 }

@@ -1,9 +1,9 @@
 {
   "title": "CRO Toolkit",
-  "description": "A browser-based suite for conversion specialists. Real-time DOM inspection, visual performance auditing, and quick A/B test prototyping without touching code.",
+  "description": "Turns any website into structured, LLM-ready context. Automated page scanning with full CSS extraction, multi-viewport screenshots, script injection with before/after capture, and one-click Jira reporting. A native macOS app that takes experiment development from days to minutes.",
   "type": "secondary",
-  "badge": "Browser Extension",
-  "hashtags": ["#CRO", "#DevTools"],
+  "hashtags": ["Desktop App + CLI", "#CRO", "#Automation", "#Tauri", "#Playwright"],
+  "image": "/images/cro-toolkit.png",
   "github": "https://github.com/apclark31",
   "order": 1
 }

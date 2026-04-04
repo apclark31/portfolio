@@ -1,9 +1,9 @@
 {
   "title": "Measurable",
-  "description": "A high-performance analytics dashboard for eCommerce teams. Designed to reduce cognitive load while surfacing the metrics that drive decisions. Built with React, advanced caching, and sub-100ms interaction latency.",
+  "description": "The A/B testing workflow, collapsed into one app. Power analysis, direct Amplitude integration, automatic statistical testing across segments, and impact projection. Built for the solo CRO analyst who spends more time managing spreadsheets than analyzing results.",
   "type": "main",
-  "tags": ["React", "Analytics"],
-  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+  "tags": ["React", "TypeScript", "Amplitude API", "Statistics"],
+  "image": "/images/measurable.png",
   "github": "https://github.com/apclark31",
   "order": 0
 }
