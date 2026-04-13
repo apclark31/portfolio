@@ -153,6 +153,77 @@
   max-width: 52rem;
 }
 
+/* Narrative (pitch/problem/hypothesis/results) tab strip */
+.cs-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cs-narrative-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: 4px;
+  background-color: var(--color-surface-container);
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cs-narrative-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.cs-narrative-tab {
+  flex-shrink: 0;
+  padding: var(--space-2) var(--space-5);
+  border: none;
+  background: transparent;
+  font-family: var(--font-headline);
+  font-size: var(--text-label-md);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.cs-narrative-tab:hover {
+  color: var(--color-on-surface);
+}
+
+.cs-narrative-tab--active {
+  background-color: var(--color-surface-lowest, #fff);
+  color: var(--color-primary);
+  box-shadow: 0 1px 2px rgba(44, 47, 49, 0.06);
+}
+
+/* Stack all narrative panels in a single grid cell so the container
+   always sizes to the tallest one — no layout shift when tabbing. */
+.cs-narrative-stack {
+  display: grid;
+}
+
+.cs-narrative-stack > .cs-narrative-body {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.cs-narrative-stack > .cs-narrative-body--active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 /* Section head with optional viewport toggle */
 .cs-section-head {
   display: flex;

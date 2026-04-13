@@ -128,19 +128,33 @@ interface Props {
   studies: CaseStudy[];
 }
 
-const statusLabels: Record<string, { label: string; className: string }> = {
-  winner: { label: 'Winner', className: 'cs-status--winner' },
-  shipped: { label: 'Shipped', className: 'cs-status--shipped' },
-  variant: { label: 'Variant', className: 'cs-status--variant' },
-  control: { label: 'Control', className: 'cs-status--control' },
-  pending: { label: 'Pending', className: 'cs-status--pending' },
+type NarrativeKey = 'pitch' | 'problem' | 'hypothesis' | 'results';
+
+const narrativeLabels: Record<NarrativeKey, string> = {
+  pitch: 'Pitch',
+  problem: 'Problem',
+  hypothesis: 'Hypothesis',
+  results: 'Results',
 };
 
 export default function CaseStudyTabs({ studies }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [viewport, setViewport] = useState<Viewport>('desktop');
+  const [narrative, setNarrative] = useState<NarrativeKey>('pitch');
   const active = studies[activeIndex];
-  const statusInfo = statusLabels[active.status] || statusLabels.pending;
+
+  const narrativeKeys: NarrativeKey[] = ['pitch'];
+  if (active.problem) narrativeKeys.push('problem');
+  if (active.hypothesis) narrativeKeys.push('hypothesis');
+  narrativeKeys.push('results');
+
+  const currentNarrative: NarrativeKey = narrativeKeys.includes(narrative) ? narrative : 'pitch';
+  const narrativeTextFor = (key: NarrativeKey): string => {
+    if (key === 'pitch') return active.pitch;
+    if (key === 'problem') return active.problem ?? '';
+    if (key === 'hypothesis') return active.hypothesis ?? '';
+    return active.results;
+  };
 
   const beforeSrc =
     viewport === 'desktop'
@@ -176,42 +190,39 @@ export default function CaseStudyTabs({ studies }: Props) {
       {/* Active study content */}
       <div className="cs-content">
         <div className="cs-content-header">
-          <div className="cs-content-meta">
-            <span className={`cs-status ${statusInfo.className}`}>
-              {statusInfo.label}
-            </span>
-            <div className="cs-tags">
-              {active.tags.map((tag) => (
-                <span key={tag} className="cs-tag">{tag}</span>
-              ))}
-            </div>
-          </div>
           <h2 className="cs-content-title">{active.title}</h2>
         </div>
 
-        {/* Pitch */}
-        <div className="cs-section">
-          <h3 className="cs-section-label">The Pitch</h3>
-          <p className="cs-section-text">{active.pitch}</p>
+        {/* Narrative tab strip — pitch / problem / hypothesis / results */}
+        <div className="cs-narrative">
+          <div className="cs-narrative-bar" role="tablist" aria-label="Case study details">
+            {narrativeKeys.map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={currentNarrative === key}
+                className={`cs-narrative-tab ${currentNarrative === key ? 'cs-narrative-tab--active' : ''}`}
+                onClick={() => setNarrative(key)}
+              >
+                {narrativeLabels[key]}
+              </button>
+            ))}
+          </div>
+          <div className="cs-narrative-stack">
+            {narrativeKeys.map((key) => (
+              <p
+                key={key}
+                className={`cs-section-text cs-narrative-body ${currentNarrative === key ? 'cs-narrative-body--active' : ''}`}
+                aria-hidden={currentNarrative !== key}
+              >
+                {narrativeTextFor(key)}
+              </p>
+            ))}
+          </div>
         </div>
 
-        {/* Problem */}
-        {active.problem && (
-          <div className="cs-section">
-            <h3 className="cs-section-label">The Problem</h3>
-            <p className="cs-section-text">{active.problem}</p>
-          </div>
-        )}
-
-        {/* Hypothesis */}
-        {active.hypothesis && (
-          <div className="cs-section">
-            <h3 className="cs-section-label">The Hypothesis</h3>
-            <p className="cs-section-text">{active.hypothesis}</p>
-          </div>
-        )}
-
-        {/* Before / After */}
+        {/* Before / After — surfaced to the top so the visual leads */}
         <div className="cs-section">
           <div className="cs-section-head">
             <h3 className="cs-section-label">Before &amp; After</h3>
@@ -250,11 +261,6 @@ export default function CaseStudyTabs({ studies }: Props) {
           </div>
         </div>
 
-        {/* Results */}
-        <div className="cs-section">
-          <h3 className="cs-section-label">Results</h3>
-          <p className="cs-section-text">{active.results}</p>
-        </div>
       </div>
     </div>
   );
