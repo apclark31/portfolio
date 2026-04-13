@@ -1,12 +1,12 @@
 {
-  "title": "Size Select: Compact Grid",
+  "title": "Size Select Redesign",
   "company": "SOREL",
-  "slug": "size-select-compact-grid",
-  "pitch": "The winning variant in the size select test. Where the dropdown hid sizes entirely, this approach kept them visible but made better use of the space: a clean 5-column CSS Grid that gives every swatch a consistent footprint regardless of how many sizes a product offers. It won because it improved the look and feel without taking anything away from the customer.",
-  "problem": "The default size selector was visually inconsistent and consumed unpredictable amounts of vertical space depending on the number of sizes. The layout shifted between products, creating a jarring experience.",
-  "hypothesis": "A compact, consistent grid layout would scan faster than the original, handle any number of sizes gracefully, and keep the CTA visible without hiding size options behind an interaction.",
+  "slug": "size-select",
+  "pitch": "A multivariate test on the PDP size selector pitting two directions against the original layout. Variant A collapsed sizes into a dropdown to reclaim vertical real estate and pull the CTA up. Variant B kept every size visible but tightened them into a consistent 5-column grid with a uniform swatch footprint regardless of how many sizes a product carried. The grid variant won: it delivered the space savings without hiding information behind an extra tap.",
+  "problem": "The default size selector consumed unpredictable amounts of vertical space depending on how many sizes a product carried, which meant the layout shifted product to product and frequently pushed the add-to-cart button below the fold. There was also a real tension in the remediation: tightening the layout risked either hiding sizes (and adding a tap) or making the grid feel cramped, so the test needed to resolve that tradeoff directly rather than assume one answer.",
+  "hypothesis": "A more compact size selector would bring the CTA closer to the decision point and improve conversion, but we didn't want to assume whether hiding sizes behind a dropdown or simply laying them out more efficiently would win. Running both variants against control would let the data decide whether space savings or visibility mattered more to customers.",
   "results": "Results data coming soon.",
-  "status": "winner",
-  "tags": ["PDP", "Size Select", "A/B Test", "Winner"],
-  "order": 2
+  "status": "shipped",
+  "tags": ["PDP", "Size Select", "MVT"],
+  "order": 1
 }

@@ -1,5 +1,8 @@
 # The Digital Curator — Portfolio Site
 
+## Git
+- Do NOT include `Co-Authored-By` lines in commit messages.
+
 ## What This Is
 Alex Clark's personal portfolio site. It's an editorial, gallery-like experience showcasing professional eCommerce work (Fender, SOREL, Dr. Martens, Made In Oregon), side projects (Fret Atlas, CRO Toolkit), and personal interests. The creative north star is **"The Digital Curator"** — soft minimalism, breathing room, intentional asymmetry.
 

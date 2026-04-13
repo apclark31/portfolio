@@ -48,7 +48,7 @@ public/
 ## How to Edit Content
 
 ### Timeline entries (job history)
-Edit JSON files in `src/content/timeline/`. Each file has:
+Edit JSON files in [src/content/timeline/](./src/content/timeline/). Each file has:
 - `dateRange` — e.g. "2024 — Present"
 - `role` — job title
 - `company` — company name
@@ -61,7 +61,7 @@ Edit JSON files in `src/content/timeline/`. Each file has:
 - `order` — sort order (0 = first/most recent)
 
 ### Projects
-Edit JSON files in `src/content/projects/`. Fields:
+Edit JSON files in [src/content/projects/](./src/content/projects/). Fields:
 - `title`, `description` — what shows up on the page
 - `type` — "main", "secondary", or "hobby" (controls layout on homepage bento)
 - `tags` — array of tech tags (shown as overlays on main project image)
@@ -72,17 +72,17 @@ Edit JSON files in `src/content/projects/`. Fields:
 - `order` — sort order (0 = first)
 
 ### Hobbies
-Edit JSON files in `src/content/hobbies/`. Fields: `icon` (Material Symbol name), `title`, `description`, `order`.
+Edit JSON files in [src/content/hobbies/](./src/content/hobbies/). Fields: `icon` (Material Symbol name), `title`, `description`, `order`.
 
 ### Adding a new entry
-Create a new `.json` file in the appropriate `src/content/` folder. As long as it matches the schema in `content.config.ts`, Astro will pick it up automatically.
+Create a new `.json` file in the appropriate [src/content/](./src/content/) folder. As long as it matches the schema in [content.config.ts](./src/content.config.ts), Astro will pick it up automatically.
 
 ---
 
 ## How to Edit Visuals
 
 ### Design tokens
-All colors, spacing, font sizes, radii, and shadows are CSS custom properties in `src/styles/tokens.css`. Change a token here and it updates everywhere.
+All colors, spacing, font sizes, radii, and shadows are CSS custom properties in [src/styles/tokens.css](./src/styles/tokens.css). Change a token here and it updates everywhere.
 
 Key tokens:
 - `--color-primary` — teal (#00675d), used for buttons, accents, links
@@ -96,7 +96,7 @@ Key tokens:
 Each `.astro` file has a `<style>` block at the bottom. Astro scopes these styles automatically — they only apply to that component. Safe to edit without affecting other components.
 
 ### Global styles
-`src/styles/global.css` has resets, utility classes (`.signature-gradient`, `.glass`, `.container`), and base typography rules.
+[src/styles/global.css](./src/styles/global.css) has resets, utility classes (`.signature-gradient`, `.glass`, `.container`), and base typography rules.
 
 ---
 
@@ -131,7 +131,7 @@ Files ending in `.tsx` are React components. They only load JavaScript in the br
 If a component doesn't have a `client:*` directive, it renders to static HTML with no JS.
 
 ### Content collections
-Data in `src/content/` is validated against schemas in `src/content.config.ts`. If you add a field to a JSON file that isn't in the schema, the build will fail. Update the schema first if you need new fields.
+Data in [src/content/](./src/content/) is validated against schemas in [src/content.config.ts](./src/content.config.ts). If you add a field to a JSON file that isn't in the schema, the build will fail. Update the schema first if you need new fields.
 
 ---
 
@@ -149,11 +149,11 @@ npm run preview  # Preview the production build locally
 
 | URL | File | What it shows |
 |-----|------|---------------|
-| `/` | `src/pages/index.astro` | Hero, About (bento), Contact, Experience preview (1 entry), Projects bento |
-| `/experience` | `src/pages/experience.astro` | Full animated timeline + case study overlay |
-| `/projects` | `src/pages/projects.astro` | Measurable (featured), CRO Toolkit, Fret Atlas |
+| `/` | [src/pages/index.astro](./src/pages/index.astro) | Hero, About (bento), Contact, Experience preview (1 entry), Projects bento |
+| `/experience` | [src/pages/experience.astro](./src/pages/experience.astro) | Full animated timeline + case study overlay |
+| `/projects` | [src/pages/projects.astro](./src/pages/projects.astro) | Measurable (featured), CRO Toolkit, Fret Atlas |
 
 ---
 
 ## Images
-Place images in `public/images/` and reference them as `/images/filename.jpg` in components or JSON data files. Astro serves `public/` files as-is at the root path.
+Place images in [public/images/](./public/images/) and reference them as `/images/filename.jpg` in components or JSON data files. Astro serves `public/` files as-is at the root path.

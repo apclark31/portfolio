@@ -7,6 +7,10 @@
   "hypothesis": "Giving the product more room to breathe and letting the imagery resonate with the customer would translate directly into conversion rate uplifts. On mobile, removing thumbnails and reducing distance to the CTA would improve purchase completion.",
   "results": "Results data coming soon.",
   "status": "shipped",
+  "beforeDesktop": "/images/case-studies/PDP-Redesign/desktop-pdp-before.png",
+  "afterDesktop": "/images/case-studies/PDP-Redesign/desktop-pdp-after.png",
+  "beforeMobile": "/images/case-studies/PDP-Redesign/mobile-pdp-before.png",
+  "afterMobile": "/images/case-studies/PDP-Redesign/mobile-pdp-after.png",
   "tags": ["PDP", "Gallery", "Desktop + Mobile", "Conversion"],
   "order": 5
 }

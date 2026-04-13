@@ -9,7 +9,15 @@
       <div class="about-hero-text">
         <span class="section-label">About</span>
         <h1 class="about-title font-headline">
-          Making digital commerce <span class="about-title-accent">work better.</span>
+          Making digital commerce
+          <span class="about-title-accent">
+            <span class="rotating-text-wrapper">
+              <span class="rotating-text active">work better.</span>
+              <span class="rotating-text">convert higher.</span>
+              <span class="rotating-text">grow faster.</span>
+              <span class="rotating-text">scale smarter.</span>
+            </span>
+          </span>
         </h1>
         <p class="about-desc font-body">
           I've built eCommerce operations from the ground up, optimized
@@ -98,7 +106,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-8);
-    margin-bottom: var(--space-16);
+    margin-bottom: var(--space-10);
     align-items: center;
   }
 
@@ -117,11 +125,31 @@
   }
 
   .about-title-accent {
-    background: linear-gradient(to right, var(--color-primary), var(--color-primary-container));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-primary);
     font-style: italic;
+  }
+
+  .rotating-text-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: visible;
+    vertical-align: baseline;
+  }
+
+  .rotating-text {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .rotating-text.active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .about-desc {
@@ -356,3 +384,46 @@
     color: var(--color-outline);
   }
 </style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const texts = document.querySelectorAll('.rotating-text');
+  if (texts.length > 1) {
+    let current = 0;
+    const duration = 0.5;
+    const hold = 2.5;
+
+    function rotateText() {
+      const currentEl = texts[current];
+      const next = (current + 1) % texts.length;
+      const nextEl = texts[next];
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          current = next;
+          setTimeout(rotateText, hold * 1000);
+        },
+      });
+
+      tl.to(currentEl, {
+        y: '-100%',
+        opacity: 0,
+        duration,
+        ease: 'power2.in',
+        onComplete: () => currentEl.classList.remove('active'),
+      }).set(nextEl, {
+        y: '100%',
+        opacity: 0,
+      }).to(nextEl, {
+        y: '0%',
+        opacity: 1,
+        duration,
+        ease: 'power2.out',
+        onStart: () => nextEl.classList.add('active'),
+      });
+    }
+
+    setTimeout(rotateText, hold * 1000);
+  }
+</script>

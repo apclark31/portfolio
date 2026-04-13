@@ -2,11 +2,15 @@
   "title": "Navigation Redesign",
   "company": "SOREL",
   "slug": "navigation",
-  "pitch": "Analytics showed customers were overwhelmingly clicking primary categories and largely ignoring the subcategory depth the mega menus maintained. On desktop, mega menus were restructured into a consistent 4-column layout. On mobile, the nested drill-down was replaced with a tabbed interface: horizontal audience tabs at the top, collapsible sections within each tab, and a persistent utility footer, all in a single scrollable viewport.",
-  "problem": "The navigation had been built up over time to accommodate an expanding catalog, but the data told a different story. Customers clicked primary categories and ignored the subcategory depth. On mobile, the multi-level drill-down required too many taps to reach what should have been a one-tap destination.",
-  "hypothesis": "Simplifying the navigation around actual customer behavior, reducing depth on desktop and replacing drill-downs with tabs on mobile, would improve category discovery and reduce navigation abandonment.",
+  "pitch": "Analytics showed customers were overwhelmingly clicking primary categories and largely ignoring the subcategory depth the mega menus maintained. The redesign leaned into that behavior and added a wayfinding layer on top of it. On desktop, the mega menu collapsed into a simpler layout, with the active primary category underlined in the header and the customer's current scope underlined inside the menu itself. On mobile, every primary category was surfaced as a persistent row at the top so customers could jump between them without restarting, state was preserved between opens, the menu auto-expanded to the last primary a customer was browsing, and the secondary category was underlined to orient anyone dropped mid-site from CRM or paid media.",
+  "problem": "The navigation had been built up over time to accommodate an expanding catalog, and it punished anyone who didn't arrive at the homepage. On mobile especially, the drill-down reset to square one every time the menu opened, forcing customers to re-traverse the hierarchy on every visit. The accordion pattern on the secondary page buried useful links under subcategory noise, and there was no visual cue telling a customer dropped in from paid or CRM where they actually were in the site. Non-linear traffic had no way to orient itself.",
+  "hypothesis": "If the navigation matched real click behavior and showed customers where they were, wayfinding would improve for linear and non-linear traffic alike: fewer resets on mobile, fewer lost customers arriving mid-funnel, and less time spent re-orienting instead of shopping.",
   "results": "Results data coming soon.",
   "status": "shipped",
+  "beforeDesktop": "/images/case-studies/Navigation/desktop-navigtion-before.png",
+  "afterDesktop": "/images/case-studies/Navigation/desktop-navigtion-after.png",
+  "beforeMobile": "/images/case-studies/Navigation/mobile-navigation-before.mp4",
+  "afterMobile": "/images/case-studies/Navigation/mobile-navigation-after.mp4",
   "tags": ["Navigation", "UX", "Desktop + Mobile", "Analytics-Led"],
   "order": 4
 }

@@ -153,6 +153,45 @@
   max-width: 52rem;
 }
 
+/* Section head with optional viewport toggle */
+.cs-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.cs-viewport-toggle {
+  display: inline-flex;
+  padding: 4px;
+  background-color: var(--color-surface-container);
+  border-radius: var(--radius-full);
+}
+
+.cs-viewport-btn {
+  padding: var(--space-2) var(--space-5);
+  border: none;
+  background: transparent;
+  font-family: var(--font-headline);
+  font-size: var(--text-label-md);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.cs-viewport-btn:hover {
+  color: var(--color-on-surface);
+}
+
+.cs-viewport-btn--active {
+  background-color: var(--color-surface-lowest, #fff);
+  color: var(--color-primary);
+  box-shadow: 0 1px 2px rgba(44, 47, 49, 0.06);
+}
+
 /* Before / After comparison */
 .cs-comparison {
   display: grid;
@@ -165,6 +204,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 .cs-comparison-slot {
   display: flex;
@@ -181,11 +221,140 @@
   color: var(--color-on-surface-variant);
 }
 
-.cs-comparison-slot img {
+/* Device frame wrappers */
+.cs-device {
   width: 100%;
+  background-color: #1e2123;
   border-radius: var(--radius-xl);
-  background-color: var(--color-surface-container);
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(44, 47, 49, 0.06),
+    0 24px 48px -12px rgba(44, 47, 49, 0.18);
 }
+
+.cs-device--mobile {
+  max-width: 280px;
+  margin-inline: auto;
+  border-radius: 36px;
+  padding: 10px;
+  background: linear-gradient(160deg, #2c2f31 0%, #15171a 100%);
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.06) inset,
+    0 30px 60px -18px rgba(44, 47, 49, 0.35);
+}
+
+.cs-device-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-device-chrome--desktop {
+  height: 28px;
+  padding: 0 12px;
+  background-color: #2c2f31;
+}
+
+.cs-device-chrome--mobile {
+  height: 22px;
+  justify-content: center;
+  background: transparent;
+}
+
+.cs-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.cs-dot:nth-child(1) { background-color: #ff5f57; }
+.cs-dot:nth-child(2) { background-color: #febc2e; }
+.cs-dot:nth-child(3) { background-color: #28c840; }
+
+.cs-notch {
+  width: 96px;
+  height: 18px;
+  border-radius: 0 0 14px 14px;
+  background-color: #0a0b0d;
+}
+
+.cs-device-screen {
+  position: relative;
+  background-color: var(--color-surface-container);
+  overflow: hidden;
+}
+
+.cs-video-toggle {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: rgba(20, 22, 24, 0.55);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.cs-video-toggle .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.cs-device:hover .cs-video-toggle,
+.cs-video-toggle:focus-visible,
+.cs-video-toggle--paused {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cs-video-toggle:hover {
+  background-color: rgba(20, 22, 24, 0.75);
+}
+
+@media (hover: none) {
+  .cs-video-toggle {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cs-device--desktop .cs-device-screen {
+  aspect-ratio: 16 / 10;
+}
+
+.cs-device--mobile .cs-device-screen {
+  border-radius: 24px;
+  aspect-ratio: 9 / 19.5;
+}
+
+.cs-device-screen img,
+.cs-device-screen video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-device-screen .cs-comparison-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background-color: var(--color-surface-container-low);
+  aspect-ratio: auto;
+}
+
 
 .cs-comparison-placeholder {
   display: flex;
