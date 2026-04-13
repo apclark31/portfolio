@@ -128,13 +128,12 @@ interface Props {
   studies: CaseStudy[];
 }
 
-type NarrativeKey = 'pitch' | 'problem' | 'hypothesis' | 'results';
+type NarrativeKey = 'pitch' | 'problem' | 'hypothesis';
 
 const narrativeLabels: Record<NarrativeKey, string> = {
   pitch: 'Pitch',
   problem: 'Problem',
   hypothesis: 'Hypothesis',
-  results: 'Results',
 };
 
 export default function CaseStudyTabs({ studies }: Props) {
@@ -146,14 +145,12 @@ export default function CaseStudyTabs({ studies }: Props) {
   const narrativeKeys: NarrativeKey[] = ['pitch'];
   if (active.problem) narrativeKeys.push('problem');
   if (active.hypothesis) narrativeKeys.push('hypothesis');
-  narrativeKeys.push('results');
 
   const currentNarrative: NarrativeKey = narrativeKeys.includes(narrative) ? narrative : 'pitch';
   const narrativeTextFor = (key: NarrativeKey): string => {
     if (key === 'pitch') return active.pitch;
     if (key === 'problem') return active.problem ?? '';
-    if (key === 'hypothesis') return active.hypothesis ?? '';
-    return active.results;
+    return active.hypothesis ?? '';
   };
 
   const beforeSrc =
